@@ -1,1 +1,0 @@
-{"event": "verbose", "uuid": "c2d56b85-7be8-420c-8bca-9b9c70431895", "counter": 13, "stdout": "The authenticity of host 'bastion-1.fabric-testbed.net (128.163.180.149)' can't be established.", "start_line": 9, "end_line": 10, "runner_ident": "b5aa401a-aa57-40b4-a38a-c78a010c3576", "created": "2025-01-17T00:24:20.084240"}
