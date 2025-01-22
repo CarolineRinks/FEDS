@@ -12,10 +12,10 @@ provider:
       - chi_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
           profile: chi
-  - janus:
-      - janus_provider:
+  - ansible:
+      - ansible_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: janus
+          profile: ansible
 config:
   - layer3:
       - my_layer:
@@ -50,7 +50,7 @@ resource:
           count: '{{ var.node_count }}'
   - service:
       - dtn_service:
-          provider: '{{ janus.janus_provider }}'
+          provider: '{{ ansible.ansible_provider }}'
           node: ['{{ node.chi_node }}','{{node.fabric_node}}']
           playbook_path: /Users/sanjanadas/ansible_gen/AnsibleAutomation/playbook_step_master.yml
           profile: fabfed

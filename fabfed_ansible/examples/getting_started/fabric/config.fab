@@ -3,10 +3,10 @@ provider:
     - fabric_provider:
          credential_file: ~/.fabfed/fabfed_credentials.yml
          profile: fabric
-  - janus:
-      - janus_provider:
+  - ansible:
+      - ansible_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: janus
+          profile: ansible
 resource:
   - node:
       - wash_node:
@@ -15,7 +15,7 @@ resource:
             count: 1
   - service:
       - ansible_service:
-          provider: '{{ janus.janus_provider }}'
+          provider: '{{ ansible.ansible_provider }}'
           node: '{{node.wash_node}}'
           playbook_path: /Users/sanjanadas/ansible_gen/AnsibleAutomation/playbook_step_master.yml
           profile: fabric

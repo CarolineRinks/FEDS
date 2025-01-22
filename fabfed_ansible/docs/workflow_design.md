@@ -32,7 +32,7 @@ The `provider` class supports the following types.
 - [ ] chi
 - [ ] cloudlab
 - [ ] sense
-- [ ] janus
+- [ ] ansiblele
       
 The `config` class support the following types:
 - [ ] layer3
@@ -79,7 +79,7 @@ A <i>resource</i> must refer to a provider using its type and its label like so:
 
 ```
 provider:                                                    # Class 
-  - fabric:                                                  # Prvider Type: Must be one of these. [fabric, chi, sense, cloudlab, janus]
+  - fabric:                                                  # Prvider Type: Must be one of these. [fabric, chi, sense, cloudlab, ansiblele]
     - fabric_provider:                                       # Label: Can be any string
          credential_file: ~/.fabfed/fabfed_credentials.yml
          profile: fabric                                     # This can be any string and it points to a section in the credential file
@@ -220,21 +220,21 @@ resource:                                               # Class
             name: my_network
 ```
 ### <a name="services"></a>Services
-A <i>service</i> <b>must</b> refer to a provider. Here it refers to a Janus provider for container management.
+A <i>service</i> <b>must</b> refer to a provider. Here it refers to a ansiblele provider for container management.
  
  
 ```
 provider:
-  - janus:
-      - janus_provider:
+  - ansiblele:
+      - ansiblele_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: janus
+          profile: ansiblele
 
 
 resource:                                                          # Class
    - service:                                                      # Must be one of node, network, or service
       - dtn_service:                                               # Label can be any string
-          - provider: '{{ janus.janus_provider }}'
+          - provider: '{{ ansiblelansibleible_provider }}'
             node: [ '{{ node.my_node0 }}', '{{ node.my_node1 }}' ] # List of nodes to apply the service to
 ```
  

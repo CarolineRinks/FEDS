@@ -3,7 +3,7 @@ provider:
     - chi_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
           profile: chi
-  - janus:
-    - janus_provider:
+  - ansible:
+    - ansible_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: janus
+          profile: ansible
