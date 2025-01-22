@@ -1,0 +1,735 @@
+[1;35m[WARNING]: Invalid characters were found in group names but not replaced, use[0m
+[1;35m-vvvv to see details[0m
+
+PLAY [Ansible Service Setup] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+[1;35m[WARNING]: error in 'jsonfile' cache plugin while trying to move[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/getting_sta[0m
+[1;35mrted/artifacts/98681e8c-6b67-4a77-9831-ac3fe7365233/fact_cache/tmpcgagu1rz' to[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/getting_sta[0m
+[1;35mrted/artifacts/98681e8c-6b67-4a77-9831-[0m
+[1;35mac3fe7365233/fact_cache/2001:400:a100:3020:f816:3eff:fec5:b244' : b"[Errno 2][0m
+[1;35mNo such file or directory: '/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-a[0m
+[1;35mnsible/examples/getting_started/artifacts/98681e8c-6b67-4a77-9831-[0m
+[1;35mac3fe7365233/fact_cache/2001:400:a100:3020:f816:3eff:fec5:b244'"[0m
+[0;32mok: [2001:400:a100:3020:f816:3eff:fec5:b244][0m
+
+TASK [roles/fact_gatherer : Gather system facts] *******************************
+[1;35m[WARNING]: error in 'jsonfile' cache plugin while trying to move[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/getting_sta[0m
+[1;35mrted/artifacts/98681e8c-6b67-4a77-9831-ac3fe7365233/fact_cache/tmpb5gikjpv' to[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/getting_sta[0m
+[1;35mrted/artifacts/98681e8c-6b67-4a77-9831-[0m
+[1;35mac3fe7365233/fact_cache/2001:400:a100:3020:f816:3eff:fec5:b244' : b"[Errno 2][0m
+[1;35mNo such file or directory: '/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-a[0m
+[1;35mnsible/examples/getting_started/artifacts/98681e8c-6b67-4a77-9831-[0m
+[1;35mac3fe7365233/fact_cache/2001:400:a100:3020:f816:3eff:fec5:b244'"[0m
+[0;32mok: [2001:400:a100:3020:f816:3eff:fec5:b244][0m
+
+TASK [roles/fact_gatherer : Display gathered facts] ****************************
+[0;32mok: [2001:400:a100:3020:f816:3eff:fec5:b244] => {[0m
+[0;32m    "ansible_facts": {[0m
+[0;32m        "all_ipv4_addresses": [[0m
+[0;32m            "10.133.16.2",[0m
+[0;32m            "10.30.6.226"[0m
+[0;32m        ],[0m
+[0;32m        "all_ipv6_addresses": [[0m
+[0;32m            "fe80::9d36:6591:1ab9:1563",[0m
+[0;32m            "2001:400:a100:3020:f816:3eff:fec5:b244",[0m
+[0;32m            "fe80::f816:3eff:fec5:b244"[0m
+[0;32m        ],[0m
+[0;32m        "ansible_local": {},[0m
+[0;32m        "apparmor": {[0m
+[0;32m            "status": "disabled"[0m
+[0;32m        },[0m
+[0;32m        "architecture": "x86_64",[0m
+[0;32m        "bios_date": "04/01/2014",[0m
+[0;32m        "bios_vendor": "SeaBIOS",[0m
+[0;32m        "bios_version": "1.16.0-4.module+el8.9.0+1408+7b966129",[0m
+[0;32m        "board_asset_tag": "NA",[0m
+[0;32m        "board_name": "RHEL-AV",[0m
+[0;32m        "board_serial": "NA",[0m
+[0;32m        "board_vendor": "Red Hat",[0m
+[0;32m        "board_version": "RHEL-8.6.0 PC (Q35 + ICH9, 2009)",[0m
+[0;32m        "chassis_asset_tag": "NA",[0m
+[0;32m        "chassis_serial": "NA",[0m
+[0;32m        "chassis_vendor": "Red Hat",[0m
+[0;32m        "chassis_version": "RHEL-8.6.0 PC (Q35 + ICH9, 2009)",[0m
+[0;32m        "cmdline": {[0m
+[0;32m            "BOOT_IMAGE": "(hd0,gpt2)/vmlinuz-4.18.0-553.el8_10.x86_64",[0m
+[0;32m            "console": "ttyS0,115200n8",[0m
+[0;32m            "crashkernel": "auto",[0m
+[0;32m            "net.ifnames": "0",[0m
+[0;32m            "no_timer_check": true,[0m
+[0;32m            "ro": true,[0m
+[0;32m            "root": "UUID=4990ceaa-f9c5-4fa5-abef-198724d21f40"[0m
+[0;32m        },[0m
+[0;32m        "date_time": {[0m
+[0;32m            "date": "2025-01-18",[0m
+[0;32m            "day": "18",[0m
+[0;32m            "epoch": "1737162086",[0m
+[0;32m            "epoch_int": "1737162086",[0m
+[0;32m            "hour": "01",[0m
+[0;32m            "iso8601": "2025-01-18T01:01:26Z",[0m
+[0;32m            "iso8601_basic": "20250118T010126601016",[0m
+[0;32m            "iso8601_basic_short": "20250118T010126",[0m
+[0;32m            "iso8601_micro": "2025-01-18T01:01:26.601016Z",[0m
+[0;32m            "minute": "01",[0m
+[0;32m            "month": "01",[0m
+[0;32m            "second": "26",[0m
+[0;32m            "time": "01:01:26",[0m
+[0;32m            "tz": "UTC",[0m
+[0;32m            "tz_dst": "UTC",[0m
+[0;32m            "tz_offset": "+0000",[0m
+[0;32m            "weekday": "Saturday",[0m
+[0;32m            "weekday_number": "6",[0m
+[0;32m            "weeknumber": "02",[0m
+[0;32m            "year": "2025"[0m
+[0;32m        },[0m
+[0;32m        "default_ipv4": {},[0m
+[0;32m        "default_ipv6": {[0m
+[0;32m            "address": "2001:400:a100:3020:f816:3eff:fec5:b244",[0m
+[0;32m            "gateway": "fe80::f816:3eff:fe3d:6098",[0m
+[0;32m            "interface": "eth0",[0m
+[0;32m            "macaddress": "fa:16:3e:c5:b2:44",[0m
+[0;32m            "mtu": 9000,[0m
+[0;32m            "prefix": "64",[0m
+[0;32m            "scope": "global",[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "device_links": {[0m
+[0;32m            "ids": {},[0m
+[0;32m            "labels": {[0m
+[0;32m                "vda2": [[0m
+[0;32m                    "boot"[0m
+[0;32m                ][0m
+[0;32m            },[0m
+[0;32m            "masters": {},[0m
+[0;32m            "uuids": {[0m
+[0;32m                "vda1": [[0m
+[0;32m                    "51D8-0B33"[0m
+[0;32m                ],[0m
+[0;32m                "vda2": [[0m
+[0;32m                    "e9cc59a8-8cd5-4972-8ff0-592fb41238d2"[0m
+[0;32m                ],[0m
+[0;32m                "vda5": [[0m
+[0;32m                    "4990ceaa-f9c5-4fa5-abef-198724d21f40"[0m
+[0;32m                ][0m
+[0;32m            }[0m
+[0;32m        },[0m
+[0;32m        "devices": {[0m
+[0;32m            "vda": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {[0m
+[0;32m                    "vda1": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [],[0m
+[0;32m                            "labels": [],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [[0m
+[0;32m                                "51D8-0B33"[0m
+[0;32m                            ][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "202752",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "99.00 MB",[0m
+[0;32m                        "start": "2048",[0m
+[0;32m                        "uuid": "51D8-0B33"[0m
+[0;32m                    },[0m
+[0;32m                    "vda2": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [],[0m
+[0;32m                            "labels": [[0m
+[0;32m                                "boot"[0m
+[0;32m                            ],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [[0m
+[0;32m                                "e9cc59a8-8cd5-4972-8ff0-592fb41238d2"[0m
+[0;32m                            ][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "2048000",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "1000.00 MB",[0m
+[0;32m                        "start": "204800",[0m
+[0;32m                        "uuid": "e9cc59a8-8cd5-4972-8ff0-592fb41238d2"[0m
+[0;32m                    },[0m
+[0;32m                    "vda3": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [],[0m
+[0;32m                            "labels": [],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "8192",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "4.00 MB",[0m
+[0;32m                        "start": "2252800",[0m
+[0;32m                        "uuid": null[0m
+[0;32m                    },[0m
+[0;32m                    "vda4": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [],[0m
+[0;32m                            "labels": [],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "2048",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "1.00 MB",[0m
+[0;32m                        "start": "2260992",[0m
+[0;32m                        "uuid": null[0m
+[0;32m                    },[0m
+[0;32m                    "vda5": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [],[0m
+[0;32m                            "labels": [],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [[0m
+[0;32m                                "4990ceaa-f9c5-4fa5-abef-198724d21f40"[0m
+[0;32m                            ][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "18704384",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "8.92 GB",[0m
+[0;32m                        "start": "2265088",[0m
+[0;32m                        "uuid": "4990ceaa-f9c5-4fa5-abef-198724d21f40"[0m
+[0;32m                    }[0m
+[0;32m                },[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "1",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "20971520",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "10.00 GB",[0m
+[0;32m                "support_discard": "512",[0m
+[0;32m                "vendor": "0x1af4",[0m
+[0;32m                "virtual": 1[0m
+[0;32m            }[0m
+[0;32m        },[0m
+[0;32m        "discovered_interpreter_python": "/usr/libexec/platform-python",[0m
+[0;32m        "distribution": "Rocky",[0m
+[0;32m        "distribution_file_parsed": true,[0m
+[0;32m        "distribution_file_path": "/etc/redhat-release",[0m
+[0;32m        "distribution_file_variety": "RedHat",[0m
+[0;32m        "distribution_major_version": "8",[0m
+[0;32m        "distribution_release": "Green Obsidian",[0m
+[0;32m        "distribution_version": "8.10",[0m
+[0;32m        "dns": {[0m
+[0;32m            "nameservers": [[0m
+[0;32m                "0.0.0.0",[0m
+[0;32m                "2600:2701:5000:a902::5",[0m
+[0;32m                "2600:2701:5000:a902::6",[0m
+[0;32m                "2610:1e0:1700:202::3"[0m
+[0;32m            ][0m
+[0;32m        },[0m
+[0;32m        "domain": "",[0m
+[0;32m        "effective_group_id": 0,[0m
+[0;32m        "effective_user_id": 0,[0m
+[0;32m        "env": {[0m
+[0;32m            "HOME": "/root",[0m
+[0;32m            "LANG": "en_US.UTF-8",[0m
+[0;32m            "LOGNAME": "root",[0m
+[0;32m            "LS_COLORS": "rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:",[0m
+[0;32m            "MAIL": "/var/mail/root",[0m
+[0;32m            "PATH": "/sbin:/bin:/usr/sbin:/usr/bin",[0m
+[0;32m            "PWD": "/home/rocky",[0m
+[0;32m            "SHELL": "/bin/bash",[0m
+[0;32m            "SHLVL": "1",[0m
+[0;32m            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-jtsaewjzovypuxipwcwmajtlrtbrybes ; /usr/libexec/platform-python /home/rocky/.ansible/tmp/ansible-tmp-1737162084.7949488-33077-33019830009701/AnsiballZ_setup.py",[0m
+[0;32m            "SUDO_GID": "1000",[0m
+[0;32m            "SUDO_UID": "1000",[0m
+[0;32m            "SUDO_USER": "rocky",[0m
+[0;32m            "TERM": "xterm-256color",[0m
+[0;32m            "USER": "root",[0m
+[0;32m            "_": "/usr/libexec/platform-python"[0m
+[0;32m        },[0m
+[0;32m        "eth0": {[0m
+[0;32m            "active": true,[0m
+[0;32m            "device": "eth0",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on [fixed]",[0m
+[0;32m                "hw_tc_offload": "off [fixed]",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off [fixed]",[0m
+[0;32m                "loopback": "off [fixed]",[0m
+[0;32m                "netns_local": "off [fixed]",[0m
+[0;32m                "ntuple_filters": "off [fixed]",[0m
+[0;32m                "receive_hashing": "off [fixed]",[0m
+[0;32m                "rx_all": "off [fixed]",[0m
+[0;32m                "rx_checksumming": "on [fixed]",[0m
+[0;32m                "rx_fcs": "off [fixed]",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_gro_list": "off",[0m
+[0;32m                "rx_udp_gro_forwarding": "off",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_filter": "on [fixed]",[0m
+[0;32m                "rx_vlan_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "on",[0m
+[0;32m                "tx_checksum_ipv4": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv6": "off [fixed]",[0m
+[0;32m                "tx_checksum_sctp": "off [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gso_list": "off [fixed]",[0m
+[0;32m                "tx_gso_partial": "off [fixed]",[0m
+[0;32m                "tx_gso_robust": "on [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "off [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off",[0m
+[0;32m                "tx_scatter_gather": "on",[0m
+[0;32m                "tx_scatter_gather_fraglist": "off [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "on",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "off",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_tunnel_remcsum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_segmentation": "off [fixed]",[0m
+[0;32m                "tx_vlan_offload": "off [fixed]",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "off [fixed]",[0m
+[0;32m                "vlan_challenged": "off [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [],[0m
+[0;32m            "ipv4": {[0m
+[0;32m                "address": "10.30.6.226",[0m
+[0;32m                "broadcast": "10.30.7.255",[0m
+[0;32m                "netmask": "255.255.254.0",[0m
+[0;32m                "network": "10.30.6.0",[0m
+[0;32m                "prefix": "23"[0m
+[0;32m            },[0m
+[0;32m            "ipv6": [[0m
+[0;32m                {[0m
+[0;32m                    "address": "2001:400:a100:3020:f816:3eff:fec5:b244",[0m
+[0;32m                    "prefix": "64",[0m
+[0;32m                    "scope": "global"[0m
+[0;32m                },[0m
+[0;32m                {[0m
+[0;32m                    "address": "fe80::f816:3eff:fec5:b244",[0m
+[0;32m                    "prefix": "64",[0m
+[0;32m                    "scope": "link"[0m
+[0;32m                }[0m
+[0;32m            ],[0m
+[0;32m            "macaddress": "fa:16:3e:c5:b2:44",[0m
+[0;32m            "module": "virtio_net",[0m
+[0;32m            "mtu": 9000,[0m
+[0;32m            "pciid": "virtio1",[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "speed": -1,[0m
+[0;32m            "timestamping": [],[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "eth1": {[0m
+[0;32m            "active": true,[0m
+[0;32m            "device": "eth1",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on [fixed]",[0m
+[0;32m                "hw_tc_offload": "off",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off",[0m
+[0;32m                "loopback": "off [fixed]",[0m
+[0;32m                "netns_local": "off [fixed]",[0m
+[0;32m                "ntuple_filters": "off",[0m
+[0;32m                "receive_hashing": "on",[0m
+[0;32m                "rx_all": "off [fixed]",[0m
+[0;32m                "rx_checksumming": "on",[0m
+[0;32m                "rx_fcs": "off",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_gro_list": "off",[0m
+[0;32m                "rx_udp_gro_forwarding": "off",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "on",[0m
+[0;32m                "rx_vlan_filter": "on",[0m
+[0;32m                "rx_vlan_offload": "on",[0m
+[0;32m                "rx_vlan_stag_filter": "on [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "on",[0m
+[0;32m                "tx_checksum_ipv4": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv6": "off [fixed]",[0m
+[0;32m                "tx_checksum_sctp": "off [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "on",[0m
+[0;32m                "tx_gre_segmentation": "on",[0m
+[0;32m                "tx_gso_list": "off [fixed]",[0m
+[0;32m                "tx_gso_partial": "on",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "off [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off",[0m
+[0;32m                "tx_scatter_gather": "on",[0m
+[0;32m                "tx_scatter_gather_fraglist": "off [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "off",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_tunnel_remcsum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_segmentation": "on",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_segmentation": "off [fixed]",[0m
+[0;32m                "tx_vlan_offload": "on",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "on",[0m
+[0;32m                "vlan_challenged": "off [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [],[0m
+[0;32m            "ipv4": {[0m
+[0;32m                "address": "10.133.16.2",[0m
+[0;32m                "broadcast": "",[0m
+[0;32m                "netmask": "255.255.255.0",[0m
+[0;32m                "network": "10.133.16.0",[0m
+[0;32m                "prefix": "24"[0m
+[0;32m            },[0m
+[0;32m            "ipv6": [[0m
+[0;32m                {[0m
+[0;32m                    "address": "fe80::9d36:6591:1ab9:1563",[0m
+[0;32m                    "prefix": "64",[0m
+[0;32m                    "scope": "link"[0m
+[0;32m                }[0m
+[0;32m            ],[0m
+[0;32m            "macaddress": "22:38:de:01:a8:bd",[0m
+[0;32m            "module": "mlx5_core",[0m
+[0;32m            "mtu": 1500,[0m
+[0;32m            "pciid": "0000:07:00.0",[0m
+[0;32m            "phc_index": 0,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "speed": 100000,[0m
+[0;32m            "timestamping": [],[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "fibre_channel_wwn": [],[0m
+[0;32m        "fips": false,[0m
+[0;32m        "form_factor": "Other",[0m
+[0;32m        "fqdn": "ssh_config-rocky_node-0",[0m
+[0;32m        "gather_subset": [[0m
+[0;32m            "all"[0m
+[0;32m        ],[0m
+[0;32m        "hostname": "ssh_config-rocky_node-0",[0m
+[0;32m        "hostnqn": "",[0m
+[0;32m        "interfaces": [[0m
+[0;32m            "eth0",[0m
+[0;32m            "eth1",[0m
+[0;32m            "lo"[0m
+[0;32m        ],[0m
+[0;32m        "is_chroot": false,[0m
+[0;32m        "iscsi_iqn": "",[0m
+[0;32m        "kernel": "4.18.0-553.el8_10.x86_64",[0m
+[0;32m        "kernel_version": "#1 SMP Fri May 24 13:05:10 UTC 2024",[0m
+[0;32m        "lo": {[0m
+[0;32m            "active": true,[0m
+[0;32m            "device": "lo",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on [fixed]",[0m
+[0;32m                "hw_tc_offload": "off [fixed]",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off [fixed]",[0m
+[0;32m                "loopback": "on [fixed]",[0m
+[0;32m                "netns_local": "on [fixed]",[0m
+[0;32m                "ntuple_filters": "off [fixed]",[0m
+[0;32m                "receive_hashing": "off [fixed]",[0m
+[0;32m                "rx_all": "off [fixed]",[0m
+[0;32m                "rx_checksumming": "on [fixed]",[0m
+[0;32m                "rx_fcs": "off [fixed]",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_gro_list": "off",[0m
+[0;32m                "rx_udp_gro_forwarding": "off",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "on [fixed]",[0m
+[0;32m                "tx_checksum_ipv4": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv6": "off [fixed]",[0m
+[0;32m                "tx_checksum_sctp": "on [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gso_list": "on",[0m
+[0;32m                "tx_gso_partial": "off [fixed]",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "on [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off [fixed]",[0m
+[0;32m                "tx_scatter_gather": "on [fixed]",[0m
+[0;32m                "tx_scatter_gather_fraglist": "on [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "on",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "on",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "on",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_tunnel_remcsum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_segmentation": "on",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_segmentation": "off [fixed]",[0m
+[0;32m                "tx_vlan_offload": "off [fixed]",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "off [fixed]",[0m
+[0;32m                "vlan_challenged": "on [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [],[0m
+[0;32m            "ipv4": {[0m
+[0;32m                "address": "127.0.0.1",[0m
+[0;32m                "broadcast": "",[0m
+[0;32m                "netmask": "255.0.0.0",[0m
+[0;32m                "network": "127.0.0.0",[0m
+[0;32m                "prefix": "8"[0m
+[0;32m            },[0m
+[0;32m            "ipv6": [[0m
+[0;32m                {[0m
+[0;32m                    "address": "::1",[0m
+[0;32m                    "prefix": "128",[0m
+[0;32m                    "scope": "host"[0m
+[0;32m                }[0m
+[0;32m            ],[0m
+[0;32m            "mtu": 65536,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "timestamping": [],[0m
+[0;32m            "type": "loopback"[0m
+[0;32m        },[0m
+[0;32m        "loadavg": {[0m
+[0;32m            "15m": 0.0,[0m
+[0;32m            "1m": 0.0,[0m
+[0;32m            "5m": 0.0[0m
+[0;32m        },[0m
+[0;32m        "locally_reachable_ips": {[0m
+[0;32m            "ipv4": [[0m
+[0;32m                "10.30.6.226",[0m
+[0;32m                "10.133.16.2",[0m
+[0;32m                "127.0.0.0/8",[0m
+[0;32m                "127.0.0.1"[0m
+[0;32m            ],[0m
+[0;32m            "ipv6": [[0m
+[0;32m                "::1",[0m
+[0;32m                "2001:400:a100:3020:f816:3eff:fec5:b244",[0m
+[0;32m                "fe80::9d36:6591:1ab9:1563",[0m
+[0;32m                "fe80::f816:3eff:fec5:b244"[0m
+[0;32m            ][0m
+[0;32m        },[0m
+[0;32m        "lsb": {},[0m
+[0;32m        "lvm": "N/A",[0m
+[0;32m        "machine": "x86_64",[0m
+[0;32m        "machine_id": "5735ae7e8ae044dda603b28d3fed8f87",[0m
+[0;32m        "memfree_mb": 7316,[0m
+[0;32m        "memory_mb": {[0m
+[0;32m            "nocache": {[0m
+[0;32m                "free": 7486,[0m
+[0;32m                "used": 211[0m
+[0;32m            },[0m
+[0;32m            "real": {[0m
+[0;32m                "free": 7316,[0m
+[0;32m                "total": 7697,[0m
+[0;32m                "used": 381[0m
+[0;32m            },[0m
+[0;32m            "swap": {[0m
+[0;32m                "cached": 0,[0m
+[0;32m                "free": 0,[0m
+[0;32m                "total": 0,[0m
+[0;32m                "used": 0[0m
+[0;32m            }[0m
+[0;32m        },[0m
+[0;32m        "memtotal_mb": 7697,[0m
+[0;32m        "module_setup": true,[0m
+[0;32m        "mounts": [[0m
+[0;32m            {[0m
+[0;32m                "block_available": 2018071,[0m
+[0;32m                "block_size": 4096,[0m
+[0;32m                "block_total": 2335488,[0m
+[0;32m                "block_used": 317417,[0m
+[0;32m                "device": "/dev/vda5",[0m
+[0;32m                "fstype": "xfs",[0m
+[0;32m                "inode_available": 4639286,[0m
+[0;32m                "inode_total": 4676096,[0m
+[0;32m                "inode_used": 36810,[0m
+[0;32m                "mount": "/",[0m
+[0;32m                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",[0m
+[0;32m                "size_available": 8266018816,[0m
+[0;32m                "size_total": 9566158848,[0m
+[0;32m                "uuid": "4990ceaa-f9c5-4fa5-abef-198724d21f40"[0m
+[0;32m            },[0m
+[0;32m            {[0m
+[0;32m                "block_available": 192607,[0m
+[0;32m                "block_size": 4096,[0m
+[0;32m                "block_total": 254434,[0m
+[0;32m                "block_used": 61827,[0m
+[0;32m                "device": "/dev/vda2",[0m
+[0;32m                "fstype": "xfs",[0m
+[0;32m                "inode_available": 511693,[0m
+[0;32m                "inode_total": 512000,[0m
+[0;32m                "inode_used": 307,[0m
+[0;32m                "mount": "/boot",[0m
+[0;32m                "options": "rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",[0m
+[0;32m                "size_available": 788918272,[0m
+[0;32m                "size_total": 1042161664,[0m
+[0;32m                "uuid": "e9cc59a8-8cd5-4972-8ff0-592fb41238d2"[0m
+[0;32m            },[0m
+[0;32m            {[0m
+[0;32m                "block_available": 47627,[0m
+[0;32m                "block_size": 2048,[0m
+[0;32m                "block_total": 50579,[0m
+[0;32m                "block_used": 2952,[0m
+[0;32m                "device": "/dev/vda1",[0m
+[0;32m                "fstype": "vfat",[0m
+[0;32m                "inode_available": 0,[0m
+[0;32m                "inode_total": 0,[0m
+[0;32m                "inode_used": 0,[0m
+[0;32m                "mount": "/boot/efi",[0m
+[0;32m                "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro",[0m
+[0;32m                "size_available": 97540096,[0m
+[0;32m                "size_total": 103585792,[0m
+[0;32m                "uuid": "51D8-0B33"[0m
+[0;32m            }[0m
+[0;32m        ],[0m
+[0;32m        "nodename": "ssh_config-rocky_node-0",[0m
+[0;32m        "os_family": "RedHat",[0m
+[0;32m        "pkg_mgr": "dnf",[0m
+[0;32m        "proc_cmdline": {[0m
+[0;32m            "BOOT_IMAGE": "(hd0,gpt2)/vmlinuz-4.18.0-553.el8_10.x86_64",[0m
+[0;32m            "console": "ttyS0,115200n8",[0m
+[0;32m            "crashkernel": "auto",[0m
+[0;32m            "net.ifnames": "0",[0m
+[0;32m            "no_timer_check": true,[0m
+[0;32m            "ro": true,[0m
+[0;32m            "root": "UUID=4990ceaa-f9c5-4fa5-abef-198724d21f40"[0m
+[0;32m        },[0m
+[0;32m        "processor": [[0m
+[0;32m            "0",[0m
+[0;32m            "AuthenticAMD",[0m
+[0;32m            "AMD EPYC 7532 32-Core Processor",[0m
+[0;32m            "1",[0m
+[0;32m            "AuthenticAMD",[0m
+[0;32m            "AMD EPYC 7532 32-Core Processor"[0m
+[0;32m        ],[0m
+[0;32m        "processor_cores": 1,[0m
+[0;32m        "processor_count": 2,[0m
+[0;32m        "processor_nproc": 2,[0m
+[0;32m        "processor_threads_per_core": 1,[0m
+[0;32m        "processor_vcpus": 2,[0m
+[0;32m        "product_name": "OpenStack Compute",[0m
+[0;32m        "product_serial": "5735ae7e-8ae0-44dd-a603-b28d3fed8f87",[0m
+[0;32m        "product_uuid": "5735ae7e-8ae0-44dd-a603-b28d3fed8f87",[0m
+[0;32m        "product_version": "25.3.0-1.el8",[0m
+[0;32m        "python": {[0m
+[0;32m            "executable": "/usr/libexec/platform-python",[0m
+[0;32m            "has_sslcontext": true,[0m
+[0;32m            "type": "cpython",[0m
+[0;32m            "version": {[0m
+[0;32m                "major": 3,[0m
+[0;32m                "micro": 8,[0m
+[0;32m                "minor": 6,[0m
+[0;32m                "releaselevel": "final",[0m
+[0;32m                "serial": 0[0m
+[0;32m            },[0m
+[0;32m            "version_info": [[0m
+[0;32m                3,[0m
+[0;32m                6,[0m
+[0;32m                8,[0m
+[0;32m                "final",[0m
+[0;32m                0[0m
+[0;32m            ][0m
+[0;32m        },[0m
+[0;32m        "python_version": "3.6.8",[0m
+[0;32m        "real_group_id": 0,[0m
+[0;32m        "real_user_id": 0,[0m
+[0;32m        "selinux": {[0m
+[0;32m            "config_mode": "enforcing",[0m
+[0;32m            "mode": "enforcing",[0m
+[0;32m            "policyvers": 33,[0m
+[0;32m            "status": "enabled",[0m
+[0;32m            "type": "targeted"[0m
+[0;32m        },[0m
+[0;32m        "selinux_python_present": true,[0m
+[0;32m        "service_mgr": "systemd",[0m
+[0;32m        "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFnuKM8Qk45WEaDrrQmRgOsHFpe8UiZNOc/vnPNvW8EfLZweQt59z8egVi8QRkwEGvr8ZnXmkI0d3/zQcAoIXWI=",[0m
+[0;32m        "ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",[0m
+[0;32m        "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIHH4kxCh3eVuS1N6zmEovste1QLkOrMBncddScqj7d23",[0m
+[0;32m        "ssh_host_key_ed25519_public_keytype": "ssh-ed25519",[0m
+[0;32m        "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCe5bpuJxo/7guapMSv7IzjKxEwowflr0O+JrknJNyk8BkNeJ99/v74v9vCPyJihJzqXixe6uk3fEX2aM7WBR94cWZgdSjAUogvOb/UTN97Lj2Rh2k/v6FUv9qfv3frm9zQw7w3sEknkPqKTIpzd2H2rUcMRcGDVwOxwfMOgV6OKUfS9q1ncD+74wYjLoantLy1nTRDsf/gSHLzU5HOVij8bK3BZw6dTaKZ8sff5ZakynsxOsosWNJRqsn5rWsQdIlDRBUySt1hV47bb2ESbpP/kJZMLAzWhO+TH44E4bPEZhXafBVOgQ8cH0OrxG8dF5izdTBZxxyBxV9JMgGprkTVWhvp9RZvSUkimy7v0Fv4FpCu/6KXDlK5LJVOxe6+tWdbXDUWLpB8KvUKHlQZe+BjlHbxqALfUW0L/tbjAwYMKer8A1i7OmCJ1ELGf/Bx6TATTWdnAnJUxuuqvq8f17aBm4qy1FVnSUM9IE2visdcAGzrQDjoU7GGmuDh364pK/s=",[0m
+[0;32m        "ssh_host_key_rsa_public_keytype": "ssh-rsa",[0m
+[0;32m        "swapfree_mb": 0,[0m
+[0;32m        "swaptotal_mb": 0,[0m
+[0;32m        "system": "Linux",[0m
+[0;32m        "system_capabilities": [],[0m
+[0;32m        "system_capabilities_enforced": "False",[0m
+[0;32m        "system_vendor": "RDO",[0m
+[0;32m        "uptime_seconds": 1237,[0m
+[0;32m        "user_dir": "/root",[0m
+[0;32m        "user_gecos": "root",[0m
+[0;32m        "user_gid": 0,[0m
+[0;32m        "user_id": "root",[0m
+[0;32m        "user_shell": "/bin/bash",[0m
+[0;32m        "user_uid": 0,[0m
+[0;32m        "userspace_architecture": "x86_64",[0m
+[0;32m        "userspace_bits": "64",[0m
+[0;32m        "virtualization_role": "guest",[0m
+[0;32m        "virtualization_tech_guest": [[0m
+[0;32m            "openstack"[0m
+[0;32m        ],[0m
+[0;32m        "virtualization_tech_host": [[0m
+[0;32m            "kvm"[0m
+[0;32m        ],[0m
+[0;32m        "virtualization_type": "openstack"[0m
+[0;32m    }[0m
+[0;32m}[0m
+
+PLAY RECAP *********************************************************************
+[0;32m2001:400:a100:3020:f816:3eff:fec5:b244[0m : [0;32mok=3   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

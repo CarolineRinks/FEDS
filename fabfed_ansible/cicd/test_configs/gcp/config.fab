@@ -1,0 +1,42 @@
+variable:
+  - vpc:
+      default: vpc-69acc1d9-8c24-47cd-90b8-33be57167dbf
+provider:
+  - gcp:
+      - gcp_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml.cicd
+          profile: gcp
+  - fabric:
+      - fabric_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml.cicd
+          profile: fabric
+config:
+  - layer3:
+      - fab_layer:
+          subnet: 192.168.10.0/24
+      - gcp_layer:
+          subnet: 10.100.0.0/24 # subnet.cidr and vpc.cidr
+  - peering:
+      - my_peering:
+          cloud_vpc: '{{ var.vpc }}'
+          remote_asn: 16550
+          local_address: 192.168.1.1/16
+          remote_address: '192.168.1.2/16'
+resource:
+  - network:
+      - gcp_net:
+          provider: '{{ gcp.gcp_provider }}'
+          layer3: '{{ layer3.gcp_layer }}'
+          peering: '{{ peering.my_peering }}'
+          stitch_with:
+            - network:  '{{ network.fabric_network }}'
+      - fabric_network:
+          provider: '{{ fabric.fabric_provider }}'
+          layer3: '{{ layer3.fab_layer }}'
+          peering: '{{ peering.my_peering }}'
+  - node:
+      - fabric_node:
+          provider: '{{ fabric.fabric_provider }}'
+          site: MAX
+          network: '{{ network.fabric_network }}'
+

@@ -1,0 +1,1433 @@
+[1;35m[WARNING]: Invalid characters were found in group names but not replaced, use[0m
+[1;35m-vvvv to see details[0m
+
+PLAY [Ansible Service Setup] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+[1;35m[WARNING]: error in 'jsonfile' cache plugin while trying to move[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/custom/arti[0m
+[1;35mfacts/ab7b4595-0c3e-4df0-ba70-e4f640716cf2/fact_cache/tmpmkvqtmvp' to[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/custom/arti[0m
+[1;35mfacts/ab7b4595-0c3e-4df0-ba70-e4f640716cf2/fact_cache/192.5.87.119' : b"[Errno[0m
+[1;35m2] No such file or directory:[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/custom/arti[0m
+[1;35mfacts/ab7b4595-0c3e-4df0-ba70-e4f640716cf2/fact_cache/192.5.87.119'"[0m
+[0;32mok: [192.5.87.119][0m
+
+TASK [roles/fact_gatherer : Gather system facts] *******************************
+[1;35m[WARNING]: error in 'jsonfile' cache plugin while trying to move[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/custom/arti[0m
+[1;35mfacts/ab7b4595-0c3e-4df0-ba70-e4f640716cf2/fact_cache/tmp5betr9xv' to[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/custom/arti[0m
+[1;35mfacts/ab7b4595-0c3e-4df0-ba70-e4f640716cf2/fact_cache/192.5.87.119' : b"[Errno[0m
+[1;35m2] No such file or directory:[0m
+[1;35m'/mnt/c/Users/carol/fabfed_fork/most_recent/fabfed-ansible/examples/custom/arti[0m
+[1;35mfacts/ab7b4595-0c3e-4df0-ba70-e4f640716cf2/fact_cache/192.5.87.119'"[0m
+[0;32mok: [192.5.87.119][0m
+
+TASK [roles/fact_gatherer : Display gathered facts] ****************************
+[0;32mok: [192.5.87.119] => {[0m
+[0;32m    "ansible_facts": {[0m
+[0;32m        "all_ipv4_addresses": [[0m
+[0;32m            "10.140.82.71"[0m
+[0;32m        ],[0m
+[0;32m        "all_ipv6_addresses": [[0m
+[0;32m            "fe80::bace:f6ff:fe43:4fe6"[0m
+[0;32m        ],[0m
+[0;32m        "ansible_local": {},[0m
+[0;32m        "apparmor": {[0m
+[0;32m            "status": "enabled"[0m
+[0;32m        },[0m
+[0;32m        "architecture": "x86_64",[0m
+[0;32m        "bios_date": "08/09/2024",[0m
+[0;32m        "bios_vendor": "Dell Inc.",[0m
+[0;32m        "bios_version": "2.22.1",[0m
+[0;32m        "board_asset_tag": "NA",[0m
+[0;32m        "board_name": "0WRPXK",[0m
+[0;32m        "board_serial": ".76D4KD3.MXFC40013C0101.",[0m
+[0;32m        "board_vendor": "Dell Inc.",[0m
+[0;32m        "board_version": "A00",[0m
+[0;32m        "chassis_asset_tag": "NA",[0m
+[0;32m        "chassis_serial": "76D4KD3",[0m
+[0;32m        "chassis_vendor": "Dell Inc.",[0m
+[0;32m        "chassis_version": "NA",[0m
+[0;32m        "cmdline": {[0m
+[0;32m            "BOOT_IMAGE": "/boot/vmlinuz-5.4.0-198-generic",[0m
+[0;32m            "console": "ttyS0,115200",[0m
+[0;32m            "gfxpayload": "text",[0m
+[0;32m            "no_timer_check": true,[0m
+[0;32m            "ro": true,[0m
+[0;32m            "root": "LABEL=cloudimg-rootfs"[0m
+[0;32m        },[0m
+[0;32m        "date_time": {[0m
+[0;32m            "date": "2025-01-18",[0m
+[0;32m            "day": "18",[0m
+[0;32m            "epoch": "1737232195",[0m
+[0;32m            "epoch_int": "1737232195",[0m
+[0;32m            "hour": "20",[0m
+[0;32m            "iso8601": "2025-01-18T20:29:55Z",[0m
+[0;32m            "iso8601_basic": "20250118T202955287944",[0m
+[0;32m            "iso8601_basic_short": "20250118T202955",[0m
+[0;32m            "iso8601_micro": "2025-01-18T20:29:55.287944Z",[0m
+[0;32m            "minute": "29",[0m
+[0;32m            "month": "01",[0m
+[0;32m            "second": "55",[0m
+[0;32m            "time": "20:29:55",[0m
+[0;32m            "tz": "UTC",[0m
+[0;32m            "tz_dst": "UTC",[0m
+[0;32m            "tz_offset": "+0000",[0m
+[0;32m            "weekday": "Saturday",[0m
+[0;32m            "weekday_number": "6",[0m
+[0;32m            "weeknumber": "02",[0m
+[0;32m            "year": "2025"[0m
+[0;32m        },[0m
+[0;32m        "default_ipv4": {[0m
+[0;32m            "address": "10.140.82.71",[0m
+[0;32m            "alias": "eno1",[0m
+[0;32m            "broadcast": "",[0m
+[0;32m            "gateway": "10.140.83.254",[0m
+[0;32m            "interface": "eno1",[0m
+[0;32m            "macaddress": "b8:ce:f6:43:4f:e6",[0m
+[0;32m            "mtu": 1500,[0m
+[0;32m            "netmask": "255.255.252.0",[0m
+[0;32m            "network": "10.140.80.0",[0m
+[0;32m            "prefix": "22",[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "default_ipv6": {},[0m
+[0;32m        "device_links": {[0m
+[0;32m            "ids": {[0m
+[0;32m                "sda": [[0m
+[0;32m                    "scsi-355cd2e415423a618",[0m
+[0;32m                    "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN",[0m
+[0;32m                    "wwn-0x55cd2e415423a618"[0m
+[0;32m                ],[0m
+[0;32m                "sda1": [[0m
+[0;32m                    "scsi-355cd2e415423a618-part1",[0m
+[0;32m                    "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part1",[0m
+[0;32m                    "wwn-0x55cd2e415423a618-part1"[0m
+[0;32m                ],[0m
+[0;32m                "sda2": [[0m
+[0;32m                    "scsi-355cd2e415423a618-part2",[0m
+[0;32m                    "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part2",[0m
+[0;32m                    "wwn-0x55cd2e415423a618-part2"[0m
+[0;32m                ],[0m
+[0;32m                "sda3": [[0m
+[0;32m                    "scsi-355cd2e415423a618-part3",[0m
+[0;32m                    "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part3",[0m
+[0;32m                    "wwn-0x55cd2e415423a618-part3"[0m
+[0;32m                ],[0m
+[0;32m                "sda4": [[0m
+[0;32m                    "scsi-355cd2e415423a618-part4",[0m
+[0;32m                    "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part4",[0m
+[0;32m                    "wwn-0x55cd2e415423a618-part4"[0m
+[0;32m                ][0m
+[0;32m            },[0m
+[0;32m            "labels": {[0m
+[0;32m                "sda1": [[0m
+[0;32m                    "MKFS_ESP"[0m
+[0;32m                ],[0m
+[0;32m                "sda3": [[0m
+[0;32m                    "cloudimg-rootfs"[0m
+[0;32m                ],[0m
+[0;32m                "sda4": [[0m
+[0;32m                    "config-2"[0m
+[0;32m                ][0m
+[0;32m            },[0m
+[0;32m            "masters": {},[0m
+[0;32m            "uuids": {[0m
+[0;32m                "sda1": [[0m
+[0;32m                    "9880-D30E"[0m
+[0;32m                ],[0m
+[0;32m                "sda3": [[0m
+[0;32m                    "0cba57ff-12b0-4925-8e67-edd409024591"[0m
+[0;32m                ],[0m
+[0;32m                "sda4": [[0m
+[0;32m                    "2025-01-18-14-14-18-00"[0m
+[0;32m                ][0m
+[0;32m            }[0m
+[0;32m        },[0m
+[0;32m        "devices": {[0m
+[0;32m            "loop0": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "0",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "130960",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "63.95 MB",[0m
+[0;32m                "support_discard": "4096",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop1": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "0",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "188176",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "91.88 MB",[0m
+[0;32m                "support_discard": "4096",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop2": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "0",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "79520",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "38.83 MB",[0m
+[0;32m                "support_discard": "4096",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop3": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "0",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "0",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "0.00 Bytes",[0m
+[0;32m                "support_discard": "4096",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop4": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "1",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "0",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "0.00 Bytes",[0m
+[0;32m                "support_discard": "0",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop5": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "1",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "0",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "0.00 Bytes",[0m
+[0;32m                "support_discard": "0",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop6": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "1",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "0",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "0.00 Bytes",[0m
+[0;32m                "support_discard": "0",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "loop7": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": null,[0m
+[0;32m                "partitions": {},[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "1",[0m
+[0;32m                "sas_address": null,[0m
+[0;32m                "sas_device_handle": null,[0m
+[0;32m                "scheduler_mode": "none",[0m
+[0;32m                "sectors": "0",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "size": "0.00 Bytes",[0m
+[0;32m                "support_discard": "0",[0m
+[0;32m                "vendor": null,[0m
+[0;32m                "virtual": 1[0m
+[0;32m            },[0m
+[0;32m            "sda": {[0m
+[0;32m                "holders": [],[0m
+[0;32m                "host": "Serial Attached SCSI controller: Broadcom / LSI SAS3008 PCI-Express Fusion-MPT SAS-3 (rev 02)",[0m
+[0;32m                "links": {[0m
+[0;32m                    "ids": [[0m
+[0;32m                        "scsi-355cd2e415423a618",[0m
+[0;32m                        "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN",[0m
+[0;32m                        "wwn-0x55cd2e415423a618"[0m
+[0;32m                    ],[0m
+[0;32m                    "labels": [],[0m
+[0;32m                    "masters": [],[0m
+[0;32m                    "uuids": [][0m
+[0;32m                },[0m
+[0;32m                "model": "SSDSC2KB480G8R",[0m
+[0;32m                "partitions": {[0m
+[0;32m                    "sda1": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [[0m
+[0;32m                                "scsi-355cd2e415423a618-part1",[0m
+[0;32m                                "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part1",[0m
+[0;32m                                "wwn-0x55cd2e415423a618-part1"[0m
+[0;32m                            ],[0m
+[0;32m                            "labels": [[0m
+[0;32m                                "MKFS_ESP"[0m
+[0;32m                            ],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [[0m
+[0;32m                                "9880-D30E"[0m
+[0;32m                            ][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "1126400",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "550.00 MB",[0m
+[0;32m                        "start": "2048",[0m
+[0;32m                        "uuid": "9880-D30E"[0m
+[0;32m                    },[0m
+[0;32m                    "sda2": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [[0m
+[0;32m                                "scsi-355cd2e415423a618-part2",[0m
+[0;32m                                "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part2",[0m
+[0;32m                                "wwn-0x55cd2e415423a618-part2"[0m
+[0;32m                            ],[0m
+[0;32m                            "labels": [],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "16384",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "8.00 MB",[0m
+[0;32m                        "start": "1128448",[0m
+[0;32m                        "uuid": null[0m
+[0;32m                    },[0m
+[0;32m                    "sda3": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [[0m
+[0;32m                                "scsi-355cd2e415423a618-part3",[0m
+[0;32m                                "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part3",[0m
+[0;32m                                "wwn-0x55cd2e415423a618-part3"[0m
+[0;32m                            ],[0m
+[0;32m                            "labels": [[0m
+[0;32m                                "cloudimg-rootfs"[0m
+[0;32m                            ],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [[0m
+[0;32m                                "0cba57ff-12b0-4925-8e67-edd409024591"[0m
+[0;32m                            ][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "936425472",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "446.52 GB",[0m
+[0;32m                        "start": "1144832",[0m
+[0;32m                        "uuid": "0cba57ff-12b0-4925-8e67-edd409024591"[0m
+[0;32m                    },[0m
+[0;32m                    "sda4": {[0m
+[0;32m                        "holders": [],[0m
+[0;32m                        "links": {[0m
+[0;32m                            "ids": [[0m
+[0;32m                                "scsi-355cd2e415423a618-part4",[0m
+[0;32m                                "scsi-SATA_SSDSC2KB480G8R_BTYF105101ZE480BGN-part4",[0m
+[0;32m                                "wwn-0x55cd2e415423a618-part4"[0m
+[0;32m                            ],[0m
+[0;32m                            "labels": [[0m
+[0;32m                                "config-2"[0m
+[0;32m                            ],[0m
+[0;32m                            "masters": [],[0m
+[0;32m                            "uuids": [[0m
+[0;32m                                "2025-01-18-14-14-18-00"[0m
+[0;32m                            ][0m
+[0;32m                        },[0m
+[0;32m                        "sectors": "132751",[0m
+[0;32m                        "sectorsize": 512,[0m
+[0;32m                        "size": "64.82 MB",[0m
+[0;32m                        "start": "937570304",[0m
+[0;32m                        "uuid": "2025-01-18-14-14-18-00"[0m
+[0;32m                    }[0m
+[0;32m                },[0m
+[0;32m                "removable": "0",[0m
+[0;32m                "rotational": "0",[0m
+[0;32m                "sas_address": "0x4433221106000000",[0m
+[0;32m                "sas_device_handle": "0x000a",[0m
+[0;32m                "scheduler_mode": "mq-deadline",[0m
+[0;32m                "sectors": "937703088",[0m
+[0;32m                "sectorsize": "512",[0m
+[0;32m                "serial": "BTYF105101ZE480BGN",[0m
+[0;32m                "size": "447.13 GB",[0m
+[0;32m                "support_discard": "4096",[0m
+[0;32m                "vendor": "ATA",[0m
+[0;32m                "virtual": 1,[0m
+[0;32m                "wwn": "0x55cd2e415423a618"[0m
+[0;32m            }[0m
+[0;32m        },[0m
+[0;32m        "discovered_interpreter_python": "/usr/bin/python3",[0m
+[0;32m        "distribution": "Ubuntu",[0m
+[0;32m        "distribution_file_parsed": true,[0m
+[0;32m        "distribution_file_path": "/etc/os-release",[0m
+[0;32m        "distribution_file_variety": "Debian",[0m
+[0;32m        "distribution_major_version": "20",[0m
+[0;32m        "distribution_release": "focal",[0m
+[0;32m        "distribution_version": "20.04",[0m
+[0;32m        "dns": {[0m
+[0;32m            "nameservers": [[0m
+[0;32m                "127.0.0.53"[0m
+[0;32m            ],[0m
+[0;32m            "options": {[0m
+[0;32m                "edns0": true,[0m
+[0;32m                "trust-ad": true[0m
+[0;32m            },[0m
+[0;32m            "search": [[0m
+[0;32m                "openstacklocal"[0m
+[0;32m            ][0m
+[0;32m        },[0m
+[0;32m        "domain": "",[0m
+[0;32m        "effective_group_id": 0,[0m
+[0;32m        "effective_user_id": 0,[0m
+[0;32m        "eno1": {[0m
+[0;32m            "active": true,[0m
+[0;32m            "device": "eno1",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on [fixed]",[0m
+[0;32m                "hw_tc_offload": "off",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off",[0m
+[0;32m                "loopback": "off [fixed]",[0m
+[0;32m                "netns_local": "off [fixed]",[0m
+[0;32m                "ntuple_filters": "off",[0m
+[0;32m                "receive_hashing": "on",[0m
+[0;32m                "rx_all": "off",[0m
+[0;32m                "rx_checksumming": "on",[0m
+[0;32m                "rx_fcs": "off",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "on",[0m
+[0;32m                "rx_vlan_filter": "on",[0m
+[0;32m                "rx_vlan_offload": "on",[0m
+[0;32m                "rx_vlan_stag_filter": "on [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "on",[0m
+[0;32m                "tx_checksum_ipv4": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv6": "off [fixed]",[0m
+[0;32m                "tx_checksum_sctp": "off [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "on",[0m
+[0;32m                "tx_gre_segmentation": "on",[0m
+[0;32m                "tx_gso_partial": "on",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "off [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off",[0m
+[0;32m                "tx_scatter_gather": "on",[0m
+[0;32m                "tx_scatter_gather_fraglist": "off [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "off",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_udp_segmentation": "on",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "on",[0m
+[0;32m                "tx_udp_tnl_segmentation": "on",[0m
+[0;32m                "tx_vlan_offload": "on",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "on",[0m
+[0;32m                "vlan_challenged": "off [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [[0m
+[0;32m                "none",[0m
+[0;32m                "all"[0m
+[0;32m            ],[0m
+[0;32m            "ipv4": {[0m
+[0;32m                "address": "10.140.82.71",[0m
+[0;32m                "broadcast": "",[0m
+[0;32m                "netmask": "255.255.252.0",[0m
+[0;32m                "network": "10.140.80.0",[0m
+[0;32m                "prefix": "22"[0m
+[0;32m            },[0m
+[0;32m            "ipv6": [[0m
+[0;32m                {[0m
+[0;32m                    "address": "fe80::bace:f6ff:fe43:4fe6",[0m
+[0;32m                    "prefix": "64",[0m
+[0;32m                    "scope": "link"[0m
+[0;32m                }[0m
+[0;32m            ],[0m
+[0;32m            "macaddress": "b8:ce:f6:43:4f:e6",[0m
+[0;32m            "module": "mlx5_core",[0m
+[0;32m            "mtu": 1500,[0m
+[0;32m            "pciid": "0000:19:00.0",[0m
+[0;32m            "phc_index": 2,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "speed": 25000,[0m
+[0;32m            "timestamping": [[0m
+[0;32m                "tx_hardware",[0m
+[0;32m                "rx_hardware",[0m
+[0;32m                "raw_hardware"[0m
+[0;32m            ],[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "eno2": {[0m
+[0;32m            "active": false,[0m
+[0;32m            "device": "eno2",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on [fixed]",[0m
+[0;32m                "hw_tc_offload": "off",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off",[0m
+[0;32m                "loopback": "off [fixed]",[0m
+[0;32m                "netns_local": "off [fixed]",[0m
+[0;32m                "ntuple_filters": "off",[0m
+[0;32m                "receive_hashing": "on",[0m
+[0;32m                "rx_all": "off",[0m
+[0;32m                "rx_checksumming": "on",[0m
+[0;32m                "rx_fcs": "off",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "on",[0m
+[0;32m                "rx_vlan_filter": "on",[0m
+[0;32m                "rx_vlan_offload": "on",[0m
+[0;32m                "rx_vlan_stag_filter": "on [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "on",[0m
+[0;32m                "tx_checksum_ipv4": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv6": "off [fixed]",[0m
+[0;32m                "tx_checksum_sctp": "off [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "on",[0m
+[0;32m                "tx_gre_segmentation": "on",[0m
+[0;32m                "tx_gso_partial": "on",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "off [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off",[0m
+[0;32m                "tx_scatter_gather": "on",[0m
+[0;32m                "tx_scatter_gather_fraglist": "off [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "off",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_udp_segmentation": "on",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "on",[0m
+[0;32m                "tx_udp_tnl_segmentation": "on",[0m
+[0;32m                "tx_vlan_offload": "on",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "on",[0m
+[0;32m                "vlan_challenged": "off [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [[0m
+[0;32m                "none",[0m
+[0;32m                "all"[0m
+[0;32m            ],[0m
+[0;32m            "macaddress": "b8:ce:f6:43:4f:e7",[0m
+[0;32m            "module": "mlx5_core",[0m
+[0;32m            "mtu": 1500,[0m
+[0;32m            "pciid": "0000:19:00.1",[0m
+[0;32m            "phc_index": 3,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "timestamping": [[0m
+[0;32m                "tx_hardware",[0m
+[0;32m                "rx_hardware",[0m
+[0;32m                "raw_hardware"[0m
+[0;32m            ],[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "ens7f0": {[0m
+[0;32m            "active": false,[0m
+[0;32m            "device": "ens7f0",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on",[0m
+[0;32m                "hw_tc_offload": "off [fixed]",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off [fixed]",[0m
+[0;32m                "loopback": "off [fixed]",[0m
+[0;32m                "netns_local": "off [fixed]",[0m
+[0;32m                "ntuple_filters": "off [fixed]",[0m
+[0;32m                "receive_hashing": "off [fixed]",[0m
+[0;32m                "rx_all": "off [fixed]",[0m
+[0;32m                "rx_checksumming": "on",[0m
+[0;32m                "rx_fcs": "off [fixed]",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_offload": "on [fixed]",[0m
+[0;32m                "rx_vlan_stag_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv4": "on",[0m
+[0;32m                "tx_checksum_ipv6": "on",[0m
+[0;32m                "tx_checksum_sctp": "off [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gso_partial": "off [fixed]",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "off [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off",[0m
+[0;32m                "tx_scatter_gather": "on",[0m
+[0;32m                "tx_scatter_gather_fraglist": "off [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "on",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "off",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_udp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_segmentation": "off [fixed]",[0m
+[0;32m                "tx_vlan_offload": "on [fixed]",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "off [fixed]",[0m
+[0;32m                "vlan_challenged": "off [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [[0m
+[0;32m                "none",[0m
+[0;32m                "ptp_v1_l4_event",[0m
+[0;32m                "ptp_v2_l4_event",[0m
+[0;32m                "ptp_v2_l2_event"[0m
+[0;32m            ],[0m
+[0;32m            "macaddress": "e4:3d:1a:2d:d7:c8",[0m
+[0;32m            "module": "tg3",[0m
+[0;32m            "mtu": 1500,[0m
+[0;32m            "pciid": "0000:86:00.0",[0m
+[0;32m            "phc_index": 0,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "timestamping": [[0m
+[0;32m                "tx_hardware",[0m
+[0;32m                "tx_software",[0m
+[0;32m                "rx_hardware",[0m
+[0;32m                "rx_software",[0m
+[0;32m                "software",[0m
+[0;32m                "raw_hardware"[0m
+[0;32m            ],[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "ens7f1": {[0m
+[0;32m            "active": false,[0m
+[0;32m            "device": "ens7f1",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on",[0m
+[0;32m                "hw_tc_offload": "off [fixed]",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off [fixed]",[0m
+[0;32m                "loopback": "off [fixed]",[0m
+[0;32m                "netns_local": "off [fixed]",[0m
+[0;32m                "ntuple_filters": "off [fixed]",[0m
+[0;32m                "receive_hashing": "off [fixed]",[0m
+[0;32m                "rx_all": "off [fixed]",[0m
+[0;32m                "rx_checksumming": "on",[0m
+[0;32m                "rx_fcs": "off [fixed]",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_offload": "on [fixed]",[0m
+[0;32m                "rx_vlan_stag_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv4": "on",[0m
+[0;32m                "tx_checksum_ipv6": "on",[0m
+[0;32m                "tx_checksum_sctp": "off [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gso_partial": "off [fixed]",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "off [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off",[0m
+[0;32m                "tx_scatter_gather": "on",[0m
+[0;32m                "tx_scatter_gather_fraglist": "off [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "on",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "off",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_udp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_segmentation": "off [fixed]",[0m
+[0;32m                "tx_vlan_offload": "on [fixed]",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "off [fixed]",[0m
+[0;32m                "vlan_challenged": "off [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [[0m
+[0;32m                "none",[0m
+[0;32m                "ptp_v1_l4_event",[0m
+[0;32m                "ptp_v2_l4_event",[0m
+[0;32m                "ptp_v2_l2_event"[0m
+[0;32m            ],[0m
+[0;32m            "macaddress": "e4:3d:1a:2d:d7:c9",[0m
+[0;32m            "module": "tg3",[0m
+[0;32m            "mtu": 1500,[0m
+[0;32m            "pciid": "0000:86:00.1",[0m
+[0;32m            "phc_index": 1,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "timestamping": [[0m
+[0;32m                "tx_hardware",[0m
+[0;32m                "tx_software",[0m
+[0;32m                "rx_hardware",[0m
+[0;32m                "rx_software",[0m
+[0;32m                "software",[0m
+[0;32m                "raw_hardware"[0m
+[0;32m            ],[0m
+[0;32m            "type": "ether"[0m
+[0;32m        },[0m
+[0;32m        "env": {[0m
+[0;32m            "HOME": "/root",[0m
+[0;32m            "LANG": "C.UTF-8",[0m
+[0;32m            "LOGNAME": "root",[0m
+[0;32m            "MAIL": "/var/mail/root",[0m
+[0;32m            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin",[0m
+[0;32m            "PWD": "/home/cc",[0m
+[0;32m            "SHELL": "/bin/bash",[0m
+[0;32m            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-qiukaswfaoyxqqubmahjsgubhomwkiyn ; /usr/bin/python3 /home/cc/.ansible/tmp/ansible-tmp-1737232193.4743695-42029-17413263272912/AnsiballZ_setup.py",[0m
+[0;32m            "SUDO_GID": "1000",[0m
+[0;32m            "SUDO_UID": "1000",[0m
+[0;32m            "SUDO_USER": "cc",[0m
+[0;32m            "TERM": "xterm-256color",[0m
+[0;32m            "USER": "root"[0m
+[0;32m        },[0m
+[0;32m        "fibre_channel_wwn": [],[0m
+[0;32m        "fips": false,[0m
+[0;32m        "form_factor": "Rack Mount Chassis",[0m
+[0;32m        "fqdn": "chi-node-uc-chi-node-0",[0m
+[0;32m        "gather_subset": [[0m
+[0;32m            "all"[0m
+[0;32m        ],[0m
+[0;32m        "hostname": "chi-node-uc-chi-node-0",[0m
+[0;32m        "hostnqn": "",[0m
+[0;32m        "interfaces": [[0m
+[0;32m            "ens7f1",[0m
+[0;32m            "ens7f0",[0m
+[0;32m            "eno1",[0m
+[0;32m            "lo",[0m
+[0;32m            "eno2"[0m
+[0;32m        ],[0m
+[0;32m        "is_chroot": false,[0m
+[0;32m        "iscsi_iqn": "",[0m
+[0;32m        "kernel": "5.4.0-198-generic",[0m
+[0;32m        "kernel_version": "#218-Ubuntu SMP Fri Sep 27 20:18:53 UTC 2024",[0m
+[0;32m        "lo": {[0m
+[0;32m            "active": true,[0m
+[0;32m            "device": "lo",[0m
+[0;32m            "features": {[0m
+[0;32m                "esp_hw_offload": "off [fixed]",[0m
+[0;32m                "esp_tx_csum_hw_offload": "off [fixed]",[0m
+[0;32m                "fcoe_mtu": "off [fixed]",[0m
+[0;32m                "generic_receive_offload": "on",[0m
+[0;32m                "generic_segmentation_offload": "on",[0m
+[0;32m                "highdma": "on [fixed]",[0m
+[0;32m                "hw_tc_offload": "off [fixed]",[0m
+[0;32m                "l2_fwd_offload": "off [fixed]",[0m
+[0;32m                "large_receive_offload": "off [fixed]",[0m
+[0;32m                "loopback": "on [fixed]",[0m
+[0;32m                "netns_local": "on [fixed]",[0m
+[0;32m                "ntuple_filters": "off [fixed]",[0m
+[0;32m                "receive_hashing": "off [fixed]",[0m
+[0;32m                "rx_all": "off [fixed]",[0m
+[0;32m                "rx_checksumming": "on [fixed]",[0m
+[0;32m                "rx_fcs": "off [fixed]",[0m
+[0;32m                "rx_gro_hw": "off [fixed]",[0m
+[0;32m                "rx_udp_tunnel_port_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_offload": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_filter": "off [fixed]",[0m
+[0;32m                "rx_vlan_stag_hw_parse": "off [fixed]",[0m
+[0;32m                "scatter_gather": "on",[0m
+[0;32m                "tcp_segmentation_offload": "on",[0m
+[0;32m                "tls_hw_record": "off [fixed]",[0m
+[0;32m                "tls_hw_rx_offload": "off [fixed]",[0m
+[0;32m                "tls_hw_tx_offload": "off [fixed]",[0m
+[0;32m                "tx_checksum_fcoe_crc": "off [fixed]",[0m
+[0;32m                "tx_checksum_ip_generic": "on [fixed]",[0m
+[0;32m                "tx_checksum_ipv4": "off [fixed]",[0m
+[0;32m                "tx_checksum_ipv6": "off [fixed]",[0m
+[0;32m                "tx_checksum_sctp": "on [fixed]",[0m
+[0;32m                "tx_checksumming": "on",[0m
+[0;32m                "tx_esp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_fcoe_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gre_segmentation": "off [fixed]",[0m
+[0;32m                "tx_gso_partial": "off [fixed]",[0m
+[0;32m                "tx_gso_robust": "off [fixed]",[0m
+[0;32m                "tx_ipxip4_segmentation": "off [fixed]",[0m
+[0;32m                "tx_ipxip6_segmentation": "off [fixed]",[0m
+[0;32m                "tx_lockless": "on [fixed]",[0m
+[0;32m                "tx_nocache_copy": "off [fixed]",[0m
+[0;32m                "tx_scatter_gather": "on [fixed]",[0m
+[0;32m                "tx_scatter_gather_fraglist": "on [fixed]",[0m
+[0;32m                "tx_sctp_segmentation": "on",[0m
+[0;32m                "tx_tcp6_segmentation": "on",[0m
+[0;32m                "tx_tcp_ecn_segmentation": "on",[0m
+[0;32m                "tx_tcp_mangleid_segmentation": "on",[0m
+[0;32m                "tx_tcp_segmentation": "on",[0m
+[0;32m                "tx_udp_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_csum_segmentation": "off [fixed]",[0m
+[0;32m                "tx_udp_tnl_segmentation": "off [fixed]",[0m
+[0;32m                "tx_vlan_offload": "off [fixed]",[0m
+[0;32m                "tx_vlan_stag_hw_insert": "off [fixed]",[0m
+[0;32m                "vlan_challenged": "on [fixed]"[0m
+[0;32m            },[0m
+[0;32m            "hw_timestamp_filters": [],[0m
+[0;32m            "ipv4": {[0m
+[0;32m                "address": "127.0.0.1",[0m
+[0;32m                "broadcast": "",[0m
+[0;32m                "netmask": "255.0.0.0",[0m
+[0;32m                "network": "127.0.0.0",[0m
+[0;32m                "prefix": "8"[0m
+[0;32m            },[0m
+[0;32m            "ipv6": [[0m
+[0;32m                {[0m
+[0;32m                    "address": "::1",[0m
+[0;32m                    "prefix": "128",[0m
+[0;32m                    "scope": "host"[0m
+[0;32m                }[0m
+[0;32m            ],[0m
+[0;32m            "mtu": 65536,[0m
+[0;32m            "promisc": false,[0m
+[0;32m            "timestamping": [[0m
+[0;32m                "tx_software",[0m
+[0;32m                "rx_software",[0m
+[0;32m                "software"[0m
+[0;32m            ],[0m
+[0;32m            "type": "loopback"[0m
+[0;32m        },[0m
+[0;32m        "loadavg": {[0m
+[0;32m            "15m": 0.2,[0m
+[0;32m            "1m": 0.28,[0m
+[0;32m            "5m": 0.4[0m
+[0;32m        },[0m
+[0;32m        "locally_reachable_ips": {[0m
+[0;32m            "ipv4": [[0m
+[0;32m                "10.140.82.71",[0m
+[0;32m                "127.0.0.0/8",[0m
+[0;32m                "127.0.0.1"[0m
+[0;32m            ],[0m
+[0;32m            "ipv6": [[0m
+[0;32m                "::1",[0m
+[0;32m                "fe80::bace:f6ff:fe43:4fe6"[0m
+[0;32m            ][0m
+[0;32m        },[0m
+[0;32m        "lsb": {[0m
+[0;32m            "codename": "focal",[0m
+[0;32m            "description": "Ubuntu 20.04.6 LTS",[0m
+[0;32m            "id": "Ubuntu",[0m
+[0;32m            "major_release": "20",[0m
+[0;32m            "release": "20.04"[0m
+[0;32m        },[0m
+[0;32m        "lvm": {[0m
+[0;32m            "lvs": {},[0m
+[0;32m            "pvs": {},[0m
+[0;32m            "vgs": {}[0m
+[0;32m        },[0m
+[0;32m        "machine": "x86_64",[0m
+[0;32m        "machine_id": "25b50daf987747b5bcd3e0554a773353",[0m
+[0;32m        "memfree_mb": 189880,[0m
+[0;32m        "memory_mb": {[0m
+[0;32m            "nocache": {[0m
+[0;32m                "free": 190151,[0m
+[0;32m                "used": 1867[0m
+[0;32m            },[0m
+[0;32m            "real": {[0m
+[0;32m                "free": 189880,[0m
+[0;32m                "total": 192018,[0m
+[0;32m                "used": 2138[0m
+[0;32m            },[0m
+[0;32m            "swap": {[0m
+[0;32m                "cached": 0,[0m
+[0;32m                "free": 0,[0m
+[0;32m                "total": 0,[0m
+[0;32m                "used": 0[0m
+[0;32m            }[0m
+[0;32m        },[0m
+[0;32m        "memtotal_mb": 192018,[0m
+[0;32m        "module_setup": true,[0m
+[0;32m        "mounts": [[0m
+[0;32m            {[0m
+[0;32m                "block_available": 104320602,[0m
+[0;32m                "block_size": 4096,[0m
+[0;32m                "block_total": 109800530,[0m
+[0;32m                "block_used": 5479928,[0m
+[0;32m                "device": "/dev/sda3",[0m
+[0;32m                "fstype": "ext4",[0m
+[0;32m                "inode_available": 115367196,[0m
+[0;32m                "inode_total": 115479360,[0m
+[0;32m                "inode_used": 112164,[0m
+[0;32m                "mount": "/",[0m
+[0;32m                "options": "rw,relatime",[0m
+[0;32m                "size_available": 427297185792,[0m
+[0;32m                "size_total": 449742970880,[0m
+[0;32m                "uuid": "0cba57ff-12b0-4925-8e67-edd409024591"[0m
+[0;32m            },[0m
+[0;32m            {[0m
+[0;32m                "block_available": 0,[0m
+[0;32m                "block_size": 131072,[0m
+[0;32m                "block_total": 512,[0m
+[0;32m                "block_used": 512,[0m
+[0;32m                "device": "/dev/loop0",[0m
+[0;32m                "fstype": "squashfs",[0m
+[0;32m                "inode_available": 0,[0m
+[0;32m                "inode_total": 12057,[0m
+[0;32m                "inode_used": 12057,[0m
+[0;32m                "mount": "/snap/core20/2318",[0m
+[0;32m                "options": "ro,nodev,relatime",[0m
+[0;32m                "size_available": 0,[0m
+[0;32m                "size_total": 67108864,[0m
+[0;32m                "uuid": "N/A"[0m
+[0;32m            },[0m
+[0;32m            {[0m
+[0;32m                "block_available": 0,[0m
+[0;32m                "block_size": 131072,[0m
+[0;32m                "block_total": 736,[0m
+[0;32m                "block_used": 736,[0m
+[0;32m                "device": "/dev/loop1",[0m
+[0;32m                "fstype": "squashfs",[0m
+[0;32m                "inode_available": 0,[0m
+[0;32m                "inode_total": 815,[0m
+[0;32m                "inode_used": 815,[0m
+[0;32m                "mount": "/snap/lxd/29619",[0m
+[0;32m                "options": "ro,nodev,relatime",[0m
+[0;32m                "size_available": 0,[0m
+[0;32m                "size_total": 96468992,[0m
+[0;32m                "uuid": "N/A"[0m
+[0;32m            },[0m
+[0;32m            {[0m
+[0;32m                "block_available": 0,[0m
+[0;32m                "block_size": 131072,[0m
+[0;32m                "block_total": 311,[0m
+[0;32m                "block_used": 311,[0m
+[0;32m                "device": "/dev/loop2",[0m
+[0;32m                "fstype": "squashfs",[0m
+[0;32m                "inode_available": 0,[0m
+[0;32m                "inode_total": 651,[0m
+[0;32m                "inode_used": 651,[0m
+[0;32m                "mount": "/snap/snapd/21759",[0m
+[0;32m                "options": "ro,nodev,relatime",[0m
+[0;32m                "size_available": 0,[0m
+[0;32m                "size_total": 40763392,[0m
+[0;32m                "uuid": "N/A"[0m
+[0;32m            },[0m
+[0;32m            {[0m
+[0;32m                "block_available": 140470,[0m
+[0;32m                "block_size": 4096,[0m
+[0;32m                "block_total": 140517,[0m
+[0;32m                "block_used": 47,[0m
+[0;32m                "device": "/dev/sda1",[0m
+[0;32m                "fstype": "vfat",[0m
+[0;32m                "inode_available": 0,[0m
+[0;32m                "inode_total": 0,[0m
+[0;32m                "inode_used": 0,[0m
+[0;32m                "mount": "/boot/efi",[0m
+[0;32m                "options": "rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro",[0m
+[0;32m                "size_available": 575365120,[0m
+[0;32m                "size_total": 575557632,[0m
+[0;32m                "uuid": "9880-D30E"[0m
+[0;32m            }[0m
+[0;32m        ],[0m
+[0;32m        "nodename": "chi-node-uc-chi-node-0",[0m
+[0;32m        "os_family": "Debian",[0m
+[0;32m        "pkg_mgr": "apt",[0m
+[0;32m        "proc_cmdline": {[0m
+[0;32m            "BOOT_IMAGE": "/boot/vmlinuz-5.4.0-198-generic",[0m
+[0;32m            "console": [[0m
+[0;32m                "tty0",[0m
+[0;32m                "ttyS0,115200"[0m
+[0;32m            ],[0m
+[0;32m            "gfxpayload": "text",[0m
+[0;32m            "no_timer_check": true,[0m
+[0;32m            "ro": true,[0m
+[0;32m            "root": "LABEL=cloudimg-rootfs"[0m
+[0;32m        },[0m
+[0;32m        "processor": [[0m
+[0;32m            "0",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "1",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "2",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "3",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "4",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "5",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "6",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "7",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "8",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "9",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "10",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "11",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "12",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "13",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "14",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "15",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "16",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "17",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "18",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "19",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "20",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "21",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "22",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "23",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "24",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "25",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "26",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "27",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "28",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "29",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "30",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "31",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "32",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "33",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "34",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "35",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "36",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "37",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "38",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "39",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "40",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "41",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "42",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "43",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "44",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "45",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "46",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "47",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "48",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "49",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "50",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "51",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "52",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "53",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "54",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "55",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "56",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "57",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "58",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "59",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "60",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "61",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "62",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "63",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "64",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "65",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "66",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "67",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "68",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "69",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "70",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "71",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "72",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "73",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "74",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "75",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "76",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "77",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "78",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "79",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "80",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "81",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "82",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "83",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "84",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "85",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "86",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "87",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "88",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "89",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "90",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "91",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "92",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "93",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "94",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",[0m
+[0;32m            "95",[0m
+[0;32m            "GenuineIntel",[0m
+[0;32m            "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz"[0m
+[0;32m        ],[0m
+[0;32m        "processor_cores": 24,[0m
+[0;32m        "processor_count": 2,[0m
+[0;32m        "processor_nproc": 96,[0m
+[0;32m        "processor_threads_per_core": 2,[0m
+[0;32m        "processor_vcpus": 96,[0m
+[0;32m        "product_name": "PowerEdge R740",[0m
+[0;32m        "product_serial": "76D4KD3",[0m
+[0;32m        "product_uuid": "4c4c4544-0036-4410-8034-b7c04f4b4433",[0m
+[0;32m        "product_version": "NA",[0m
+[0;32m        "python": {[0m
+[0;32m            "executable": "/usr/bin/python3",[0m
+[0;32m            "has_sslcontext": true,[0m
+[0;32m            "type": "cpython",[0m
+[0;32m            "version": {[0m
+[0;32m                "major": 3,[0m
+[0;32m                "micro": 10,[0m
+[0;32m                "minor": 8,[0m
+[0;32m                "releaselevel": "final",[0m
+[0;32m                "serial": 0[0m
+[0;32m            },[0m
+[0;32m            "version_info": [[0m
+[0;32m                3,[0m
+[0;32m                8,[0m
+[0;32m                10,[0m
+[0;32m                "final",[0m
+[0;32m                0[0m
+[0;32m            ][0m
+[0;32m        },[0m
+[0;32m        "python_version": "3.8.10",[0m
+[0;32m        "real_group_id": 0,[0m
+[0;32m        "real_user_id": 0,[0m
+[0;32m        "selinux": {[0m
+[0;32m            "status": "disabled"[0m
+[0;32m        },[0m
+[0;32m        "selinux_python_present": true,[0m
+[0;32m        "service_mgr": "systemd",[0m
+[0;32m        "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNoBYf4pYy01FpUhaT8H6zdSwzGzgdfN1uDktxa5kQ+ilt27TDxw4Mui1ALFUOkVWnmqDumz9AxiO2t+7EzbrNA=",[0m
+[0;32m        "ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",[0m
+[0;32m        "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIKuLUW1k5d4+JwjyneMbLnryENosH/KuYWz7JczAocyb",[0m
+[0;32m        "ssh_host_key_ed25519_public_keytype": "ssh-ed25519",[0m
+[0;32m        "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuTfvMn26Ja5IA17PqlUse/3VBF/+RbN071yK3Fh6nzAfxOqfSuiDkC33xPlSdPJvuYgzmH70I1BMbVB2IR5Nei3IU8Ss0B09buKE3/oXQfPxIj0ratWszvVStAHbzo0gwinoOsmiIDsp4/psWFUKo5ZK31qtr1EaOBlAbLAXMc7XMTQ89tzCdqaS/kMRHaVDVdicxuEd/cbF9uFCsAgyaeOlUaXsimiQfX2AwYg+8xp+aPf6xGFVATsFTO2MDHDE6/TSP7KdYO+twXH/83Tmx5qKZ8m68pRQXuwjsUfjYss1OmX0U1D8CTVz1nRfbCmXqAnjVDkqSv+Du6TpFTi70NXRABsNnxudhF9YfwX6bz67ChOoY9UhIlUQwByPBiVP26lyTKA9HKU52P+/1jg3JGJT8z3mXtVB0BztmuSdfU2cb2EBz4ayv/hIHfR00jNb2BQF/rWgsCa4EJYv9COtVf/frMEWD1pKE6AGmhSt5xoLNFddaRoQKQrknfsVncS8=",[0m
+[0;32m        "ssh_host_key_rsa_public_keytype": "ssh-rsa",[0m
+[0;32m        "swapfree_mb": 0,[0m
+[0;32m        "swaptotal_mb": 0,[0m
+[0;32m        "system": "Linux",[0m
+[0;32m        "system_capabilities": [],[0m
+[0;32m        "system_capabilities_enforced": "False",[0m
+[0;32m        "system_vendor": "Dell Inc.",[0m
+[0;32m        "uptime_seconds": 299,[0m
+[0;32m        "user_dir": "/root",[0m
+[0;32m        "user_gecos": "root",[0m
+[0;32m        "user_gid": 0,[0m
+[0;32m        "user_id": "root",[0m
+[0;32m        "user_shell": "/bin/bash",[0m
+[0;32m        "user_uid": 0,[0m
+[0;32m        "userspace_architecture": "x86_64",[0m
+[0;32m        "userspace_bits": "64",[0m
+[0;32m        "virtualization_role": "host",[0m
+[0;32m        "virtualization_tech_guest": [],[0m
+[0;32m        "virtualization_tech_host": [[0m
+[0;32m            "kvm"[0m
+[0;32m        ],[0m
+[0;32m        "virtualization_type": "kvm"[0m
+[0;32m    }[0m
+[0;32m}[0m
+
+PLAY RECAP *********************************************************************
+[0;32m192.5.87.119[0m               : [0;32mok=3   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

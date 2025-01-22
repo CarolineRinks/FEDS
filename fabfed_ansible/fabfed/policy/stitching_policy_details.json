@@ -1,0 +1,78 @@
+{
+   "fabric": {
+      "Utah-Cloudlab-Powder": {
+         "device_name": "Utah-Cloudlab-Powder",
+         "site": "UTAH",
+         "vlan_range": ["2100-3499"]
+      },
+      "CloudLab-Clemson": {
+         "device_name": "CloudLab-Clemson",
+         "site": "CLEM",
+         "vlan_range": ["3000-3999"] 
+      },
+      "Cloud-Facility-AWS": [
+         {
+            "device_name": "agg3.dall3",
+            "local_name": "TenGigE0/0/0/13/3",
+            "region": "us-east-1",
+            "site": "AWS"
+         }
+      ],
+      "Cloud-Facility-GCP": [
+         {
+            "device_name": "agg3.ashb",
+            "local_name": "Bundle-Ether5",
+            "region": "us-east4",
+            "site": "GCP"
+         }
+      ],
+      "Chameleon-StarLight": {
+         "device_name": "Chameleon-StarLight",
+         "site": "STAR"
+      },
+      "Internet2-StarLight": {
+         "device_name": "Internet2-StarLight",
+         "site": "STAR"
+      },
+      "Chameleon-TACC": {
+         "device_name": "Chameleon-TACC",
+         "site": "TACC"
+      }
+   },
+   "chi": {
+      "fabric": [
+        {
+          "name": "Chameleon-StarLight",
+          "site": "CHI@UC"
+        },
+        {
+          "name": "Internet2-StarLight",
+          "site": "CHI@UC"
+        },
+        {
+          "name": "Chameleon-TACC",
+          "site": "CHI@TACC"
+        }
+      ]
+   },
+   "cloudlab": {
+      "aes-fabfed-stitch-utah": [
+         {
+            "name": "Cloudlab-Utah",
+            "option": {
+               "cluster": "urn:publicid:IDN+utah.cloudlab.us+authority+cm"
+            }
+         }
+      ],
+      "aes-fabfed-stitch-clem": [
+         {
+            "name": "CloudLab-Clemson",
+            "option": {
+               "cluster": "urn:publicid:IDN+clemson.cloudlab.us+authority+cm"
+            }
+         }
+      ]
+   },
+   "sense": {
+   }
+}

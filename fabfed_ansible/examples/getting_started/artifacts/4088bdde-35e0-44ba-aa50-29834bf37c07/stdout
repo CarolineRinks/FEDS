@@ -1,0 +1,17 @@
+[1;35m[WARNING]: Invalid characters were found in group names but not replaced, use[0m
+[1;35m-vvvv to see details[0m
+[0;35m[DEPRECATION WARNING]: Specifying a list of dictionaries for vars is deprecated[0m
+[0;35m in favor of specifying a dictionary. This feature will be removed in version [0m
+[0;35m2.18. Deprecation warnings can be disabled by setting [0m
+[0;35mdeprecation_warnings=False in ansible.cfg.[0m
+[1;35m[WARNING]: Found variable using reserved name: name[0m
+
+PLAY [Install Janus and dependencies] ******************************************
+
+TASK [Gathering Facts] *********************************************************
+[1;31mfatal: [2001:400:a100:3020:f816:3eff:fe4a:b9b8]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: kex_exchange_identification: Connection closed by remote host\r\nConnection closed by UNKNOWN port 65535", "unreachable": true}[0m
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+[0;31m2001:400:a100:3020:f816:3eff:fe4a:b9b8[0m : ok=0    changed=0    [1;31munreachable=1   [0m failed=0    skipped=0    rescued=0    ignored=0   

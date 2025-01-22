@@ -1,0 +1,56 @@
+---
+- name: Install packages based on the detected OS
+  hosts: all
+  become: true
+  tasks:
+    # Update and upgrade for Debian-based systems
+    - name: Update and upgrade packages (Debian-based)
+      ansible.builtin.apt:
+        upgrade: "yes"
+        update_cache: true
+        autoremove: true
+        autoclean: true
+      when: ansible_facts['os_family'] == "Debian"
+
+    # Update and upgrade for Red Hat-based systems
+    - name: Update and upgrade packages (RedHat-based)
+      ansible.builtin.yum:
+        name: "*"
+        state: latest
+      when: ansible_facts['os_family'] == "RedHat"
+
+    # Install basic Python packages for Debian-based systems
+    - name: Install Python packages (Debian-based)
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: latest
+        update_cache: true
+      loop:
+        - python3-dev
+        - python3-pip
+      when: ansible_facts['os_family'] == "Debian"
+
+    # Install basic Python packages for Red Hat-based systems
+    - name: Install Python packages (RedHat-based)
+      ansible.builtin.yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - python3-devel
+        - python3-pip
+      when: ansible_facts['os_family'] == "RedHat"
+
+    # Install additional system packages
+    - name: Install additional system packages
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - build-essential
+        - net-tools
+        - wget
+        - git
+        - curl
+        - jq
+        - libssl-dev
+      when: ansible_facts['os_family'] in ["Debian", "RedHat"]

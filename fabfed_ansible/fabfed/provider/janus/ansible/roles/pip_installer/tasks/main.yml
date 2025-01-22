@@ -1,0 +1,20 @@
+---
+- name: Install pip packages
+  pip:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - pip
+    - setuptools
+    - wheel
+    - matplotlib
+    - pandas
+    - numpy
+    - pyzmq
+    - kafka-python
+    - scikit-learn
+    - Pillow
+    - tensorflow
+    - opencv-python
+    - requests
+    - thread6

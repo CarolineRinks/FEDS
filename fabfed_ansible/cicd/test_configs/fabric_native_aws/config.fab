@@ -1,0 +1,49 @@
+variable:
+  - node_count:
+      default: 1
+provider:
+  - fabric:
+      - fabric_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml.cicd
+          profile: fabric
+config:
+  - layer3:
+      - fab_layer:
+          subnet: 192.168.10.0/24
+      - aws_layer:
+          subnet: 10.0.1.0/24
+  - peering:
+      - my_peering:
+          cloud_account: '296256999979'
+          local_asn: 55038
+          local_address: 192.168.1.1/30
+          remote_asn: 64512
+          remote_address: 192.168.1.2/30
+resource:
+  - node:
+      - fabric_node:
+          provider: '{{ fabric.fabric_provider }}'
+          network: '{{ network.fabric_network }}'
+          count: '{{ var.node_count }}'
+  - network:
+      - fabric_network:
+          provider: '{{ fabric.fabric_provider }}'
+          layer3: '{{ layer3.fab_layer }}'
+          peer_layer3: ['{{ layer3.aws_layer }}']
+          peering: '{{ peering.my_peering }}'
+          stitch_info:
+            stitch_port:
+              name: AWS_PORTS
+              profile: FABRIC-AWS-DX-VGW
+              provider: aws
+              peer:
+                profile: Cloud-Facility-AWS
+                provider: fabric
+                device_name: agg3.dall3
+                local_name: TenGigE0/0/0/13/3
+                region: us-east-1
+                site: AWS
+                labels: ['fabric_network@network']
+            producer: fabric
+            consumer: aws
+

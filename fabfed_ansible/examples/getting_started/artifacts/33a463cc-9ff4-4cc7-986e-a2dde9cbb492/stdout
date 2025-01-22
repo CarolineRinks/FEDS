@@ -1,0 +1,10 @@
+[1;35m[WARNING]: Invalid characters were found in group names but not replaced, use[0m
+[1;35m-vvvv to see details[0m
+
+PLAY [Ansible Service Setup] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+[1;31mfatal: [2001:400:a100:3020:f816:3eff:fe95:955e]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Can't open user config file something: No such file or directory", "unreachable": true}[0m
+
+PLAY RECAP *********************************************************************
+[0;31m2001:400:a100:3020:f816:3eff:fe95:955e[0m : ok=0    changed=0    [1;31munreachable=1   [0m failed=0    skipped=0    rescued=0    ignored=0   

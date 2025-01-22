@@ -1,0 +1,21 @@
+[1;35m[WARNING]: Invalid characters were found in group names but not replaced, use[0m
+[1;35m-vvvv to see details[0m
+[0;35m[DEPRECATION WARNING]: Specifying a list of dictionaries for vars is deprecated[0m
+[0;35m in favor of specifying a dictionary. This feature will be removed in version [0m
+[0;35m2.18. Deprecation warnings can be disabled by setting [0m
+[0;35mdeprecation_warnings=False in ansible.cfg.[0m
+[1;35m[WARNING]: Found variable using reserved name: name[0m
+
+PLAY [Install Janus and dependencies] ******************************************
+The authenticity of host 'bastion-1.fabric-testbed.net (128.163.180.149)' can't be established.
+ED25519 key fingerprint is SHA256:8ZrrCmYlgVJciScTwz3sDTsV3MV0kvcwtTgSOGYGwzg.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+
+TASK [Gathering Facts] *********************************************************
+[1;31mfatal: [2001:400:a100:3020:f816:3eff:fed9:ba70]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange\r\nConnection to UNKNOWN port 65535 timed out", "unreachable": true}[0m
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+[0;31m2001:400:a100:3020:f816:3eff:fed9:ba70[0m : ok=0    changed=0    [1;31munreachable=1   [0m failed=0    skipped=0    rescued=0    ignored=0   

@@ -1,0 +1,9 @@
+provider:
+  - chi:
+    - chi_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml
+          profile: chi 
+    - janus:
+      - janus_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml
+          profile: janus

@@ -1,0 +1,8 @@
+fabrictestbed-extensions
+python-chi
+sense-o-api==1.26
+ansible==9.5.1
+ansible-runner==2.3.6
+xmltodict
+boto3
+google-cloud-compute

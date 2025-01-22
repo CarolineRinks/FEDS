@@ -1,0 +1,28 @@
+variable:
+  - vlan:
+     default: 3101
+  - node_count:
+      default: 0 
+provider:
+  - fabric:
+      - fabric_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml.cicd
+          profile: fabric
+config:
+  - layer3:
+      - my_layer:
+          subnet: 192.168.1.0/24
+resource:
+  - node:
+      - fabric_node:
+          provider: '{{ fabric.fabric_provider }}'
+          network: '{{ network.fabric_network }}'
+          count: '{{ var.node_count }}' 
+  - network:
+      - fabric_network:
+          provider: '{{ fabric.fabric_provider }}'
+          layer3: "{{ layer3.my_layer }}"
+          device_name: Utah-Cloudlab-Powder
+          site: UTAH
+          interface:
+          - vlan: '{{ var.vlan }}'

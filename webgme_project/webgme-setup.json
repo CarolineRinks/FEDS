@@ -1,0 +1,15 @@
+{
+  "components": {
+    "seeds": {},
+    "plugins": {
+      "create_fabfed_config_file": {
+        "src": "src/plugins/create_fabfed_config_file",
+        "test": "test/plugins/create_fabfed_config_file"
+      }
+    }
+  },
+  "dependencies": {
+    "seeds": {},
+    "plugins": {}
+  }
+}

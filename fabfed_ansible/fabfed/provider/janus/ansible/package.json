@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "webgme": "^2.47.0",
+    "webgme-cli": "^2.8.5"
+  }
+}
