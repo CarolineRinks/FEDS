@@ -1,0 +1,6 @@
+---
+- name: Simple Ping Test
+  hosts: all
+  tasks:
+    - name: Ping the target node
+      ansible.builtin.ping:

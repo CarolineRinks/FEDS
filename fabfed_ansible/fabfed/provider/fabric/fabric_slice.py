@@ -399,11 +399,11 @@ class FabricSlice:
         self._reload_networks()
 
     def _handle_node_networking(self):
-        try:
-            self._do_handle_node_networking()
-        except Exception as e:
-            raise Exception(
-                f"Please Apply again. Fabric slice {self.name} has exception during post networking setup: {e}")
+        # try:
+        self._do_handle_node_networking()
+        # except Exception as e:
+        #     raise Exception(
+        #         f"Please Apply again. Fabric slice {self.name} has exception during post networking setup: {e}")
 
     def create_resource(self, *, resource: dict):
         label = resource.get(Constants.LABEL)

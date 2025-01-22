@@ -180,7 +180,7 @@ class create_fabfed_config_file(PluginBase):
                 self.services_string = self.services_string[:-2] + "]\n"    # remove the last comma and space and add ending bracket
 
                 # Write profile
-                if provider_name == "Janus":
+                if provider_name == "ansible":
                     self.services_string += "          profile: fabfed\n"
                 elif provider_name == "Chameleon":
                     self.services_string += "          profile: chi\n"

@@ -4,10 +4,11 @@ resource:
             provider: '{{ chi.chi_provider }}'
             site: '{{ var.chi_site }}'
             image: CC-Ubuntu20.04
-            network: sharednet1  
-      - service:
-        - ansible_service:
-            provider: '{{ janus.janus_provider }}'
+            network: sharednet1
+  - service:
+      - ansible_service:
+            provider: '{{ ansible.ansible_provider }}'
             node: '{{node.chi_node}}'
+            playbook_path: /Users/sanjanadas/ansible_gen/AnsibleAutomation/playbook_step_master.yml
             profile: chi
             count: 1

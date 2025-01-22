@@ -7,10 +7,10 @@ provider:
       - chi_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
           profile: chi
-  - janus:
-      - janus_provider:
+  - ansible:
+      - ansible_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: janus
+          profile: ansible
 variable:
   - fabric_site:
       default: TACC 
@@ -48,7 +48,7 @@ resource:
           count: 1
   - service:
       - ansible_service:
-          provider: '{{ janus.janus_provider }}'
+          provider: '{{ ansible.ansible_provider }}'
           node: ['{{ node.chi_node }}', '{{ node.fabric_node }}']
           profile: fabfed
           count: 2

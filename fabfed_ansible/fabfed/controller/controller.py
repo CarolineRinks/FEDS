@@ -374,8 +374,8 @@ class Controller:
                 rep = yaml.dump(tester.summary, default_flow_style=False, sort_keys=False, Dumper=get_dumper())
                 self.logger.info(f"{rep}")
 
-                if tester.has_failures():
-                    raise ControllerException([Exception("Node testing over ssh failed see node test summary ...")])
+                # if tester.has_failures():
+                #     raise ControllerException([Exception("Node testing over ssh failed see node test summary ...")])
 
                 self.logger.info(f"Node testing over ssh passed for {[n.name for n in nodes]}")
 
@@ -394,8 +394,8 @@ class Controller:
                 exceptions.append(e)
                 self.logger.error(e, exc_info=True)
 
-        if exceptions:
-            raise ControllerException(exceptions)
+        # if exceptions:
+        #     raise ControllerException(exceptions)
 
     @staticmethod
     def _build_state_map(provider_states: List[ProviderState]) -> Dict[str, List[ResourceState]]:

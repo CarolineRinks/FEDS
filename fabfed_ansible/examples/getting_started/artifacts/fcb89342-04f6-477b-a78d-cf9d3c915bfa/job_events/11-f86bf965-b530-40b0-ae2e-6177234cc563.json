@@ -1,1 +1,0 @@
-{"event": "verbose", "uuid": "f86bf965-b530-40b0-ae2e-6177234cc563", "counter": 11, "stdout": "\u001b[0;31m- name: Install packages based on the detected OS\u001b[0m", "start_line": 10, "end_line": 11, "runner_ident": "fcb89342-04f6-477b-a78d-cf9d3c915bfa", "created": "2025-01-18T19:14:11.060447"}

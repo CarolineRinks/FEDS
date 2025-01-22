@@ -1,1 +1,0 @@
-{"event": "verbose", "uuid": "eba6473b-1c95-4619-b831-79061d27b779", "counter": 3, "stdout": "\u001b[0;35m[DEPRECATION WARNING]: Specifying a list of dictionaries for vars is deprecated\u001b[0m", "start_line": 2, "end_line": 3, "runner_ident": "4d629c2a-f803-4aa3-a380-0acda188b55a", "created": "2025-01-17T00:39:47.365874"}

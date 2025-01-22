@@ -341,6 +341,7 @@ class Provider(ABC):
 
             try:
                 self.do_create_resource(resource=resource)
+                self.logger.info(f"----- in PROVIDER.PY DO CREATE RESOURCE Create: {label} using {self.label}: {self._added}")
             except (Exception, KeyboardInterrupt) as e:
                 self.failed[label] = 'CREATE'
                 failed_count = resource[Constants.RES_COUNT] - len(self.creation_details[label]['resources'])

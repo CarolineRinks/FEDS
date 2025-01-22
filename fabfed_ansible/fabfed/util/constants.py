@@ -105,7 +105,7 @@ class Constants:
         "fabric": "fabfed.provider.fabric.fabric_provider.FabricProvider",
         "chi": "fabfed.provider.chi.chi_provider.ChiProvider",
         "sense": "fabfed.provider.sense.sense_provider.SenseProvider",
-        "janus": "fabfed.provider.janus.janus_provider.JanusProvider",
+        "ansible": "fabfed.provider.ansible.ansible_provider.ansibleProvider",
         "cloudlab": "fabfed.provider.cloudlab.cloudlab_provider.CloudlabProvider",
         "gcp": "fabfed.provider.gcp.gcp_provider.GcpProvider",
         "aws": "fabfed.provider.aws.aws_provider.AwsProvider",
