@@ -69,22 +69,22 @@ class ansibleProvider(Provider):
 
     def __init__(self, *, type, label, name, config: dict):
         super().__init__(type=type, label=label, name=name, logger=logger, config=config)
-        credential_file = self.config.get(Constants.CREDENTIAL_FILE)
+        # credential_file = self.config.get(Constants.CREDENTIAL_FILE)
 
-        if credential_file:
-            from fabfed.util import utils
+        # if credential_file:
+        #     from fabfed.util import utils
 
-            profile = self.config.get(Constants.PROFILE)
-            if not profile:
-                raise ValueError("Profile is missing in the configuration")
+        #     profile = self.config.get(Constants.PROFILE)
+        #     if not profile:
+        #         raise ValueError("Profile is missing in the configuration")
 
-            config = utils.load_yaml_from_file(credential_file)
-            if profile not in config:
-                raise ValueError(f"Profile '{profile}' not found in credential file")
+        #     config = utils.load_yaml_from_file(credential_file)
+        #     if profile not in config:
+        #         raise ValueError(f"Profile '{profile}' not found in credential file")
 
-            self.config = config[profile]
-        else:
-            raise ValueError("Credential file is missing in the configuration")
+        #     self.config = config[profile]
+        # else:
+        #     raise ValueError("Credential file is missing in the configuration")
     def setup_environment(self):
         # Placeholder implementation (adjust as needed)
         pass
