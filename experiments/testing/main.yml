@@ -1,0 +1,15 @@
+---
+- name: Configure Mysql
+  hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+    - ./roles/geerlingguy.mysql
+
+- name: Configure Docker
+  hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+    - ./roles/geerlingguy.docker
+

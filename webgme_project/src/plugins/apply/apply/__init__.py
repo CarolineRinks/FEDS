@@ -30,7 +30,7 @@ class apply(PluginBase):
         commit_info = self.util.save(root_node, self.commit_hash, 'master', 'Python plugin updated the model')
         logger.info('committed :{0}'.format(commit_info))
     
-
+    
 
     def make_dir(self,roles_dir):
         os.makedirs(roles_dir, exist_ok=True)
