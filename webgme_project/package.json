@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "mocha": "^5.2.0",
-    "webgme": "^2.23.0"
+    "webgme": "^2.47.0"
   },
   "dependencies": {
     "webgme-bindings": "^1.2.4"

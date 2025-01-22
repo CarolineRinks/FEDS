@@ -1,10 +1,26 @@
 {
   "components": {
-    "seeds": {},
+    "seeds": {
+      "seed_1_21": {
+        "src": "src/seeds/seed_1_21"
+      }
+    },
     "plugins": {
       "create_fabfed_config_file": {
         "src": "src/plugins/create_fabfed_config_file",
         "test": "test/plugins/create_fabfed_config_file"
+      },
+      "install_role": {
+        "src": "src/plugins/install_role",
+        "test": "test/plugins/install_role"
+      },
+      "playbook_generator": {
+        "src": "src/plugins/playbook_generator",
+        "test": "test/plugins/playbook_generator"
+      },
+      "apply": {
+        "src": "src/plugins/apply",
+        "test": "test/plugins/apply"
       }
     }
   },
