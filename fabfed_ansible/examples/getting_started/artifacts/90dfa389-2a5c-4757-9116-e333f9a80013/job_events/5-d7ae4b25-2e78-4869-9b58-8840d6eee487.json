@@ -1,0 +1,1 @@
+{"event": "verbose", "uuid": "d7ae4b25-2e78-4869-9b58-8840d6eee487", "counter": 5, "stdout": "\u001b[0;31mThe error appears to be in '/Users/sanjanadas/ansible_gen/AnsibleAutomation/tasks/ping_test.yml': line 2, column 3, but may\u001b[0m", "start_line": 4, "end_line": 5, "runner_ident": "90dfa389-2a5c-4757-9116-e333f9a80013", "created": "2025-01-20T21:04:16.991816"}

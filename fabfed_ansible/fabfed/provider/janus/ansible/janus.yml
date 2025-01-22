@@ -1,6 +1,0 @@
----
-- name: Ansible Service Setup
-  hosts: all
-  become: true
-  roles:
-    - role: roles/fact_gatherer

@@ -7,9 +7,13 @@ provider:
       - chi_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
           profile: chi
+  - janus:
+      - janus_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml
+          profile: janus
 variable:
   - fabric_site:
-      default: TACC 
+      default: TACC
   - chi_site:
       default: CHI@TACC
 config:
@@ -42,3 +46,9 @@ resource:
           image: CC-Ubuntu20.04
           flavor: m1.medium
           count: 1
+  - service:
+      - ansible_service:
+          provider: '{{ janus.janus_provider }}'
+          node: ['{{ node.chi_node }}', '{{ node.fabric_node }}']
+          profile: fabfed
+          count: 2

@@ -9,13 +9,14 @@ provider:
           profile: janus
 resource:
   - node:
-      - rocky_node:
+      - wash_node:
             provider:  '{{ fabric.fabric_provider }}'
             site: WASH
             count: 1
   - service:
       - ansible_service:
           provider: '{{ janus.janus_provider }}'
-          node: '{{node.rocky_node}}'
+          node: '{{node.wash_node}}'
+          playbook_path: /Users/sanjanadas/ansible_gen/AnsibleAutomation/playbook_step_master.yml
           profile: fabric
           count: 1

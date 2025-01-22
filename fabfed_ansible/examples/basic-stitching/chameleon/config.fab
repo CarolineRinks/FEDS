@@ -1,6 +1,6 @@
 variable:
   - site:
-      default: UC #STAR
+      default: CHI@UC #STAR
   - node_count:
       default: 1
 provider:
@@ -19,10 +19,7 @@ provider:
 config:
   - layer3:
       - my_layer:
-          subnet: 192.168.100.0/24
-          gateway: 192.168.100.1
-          ip_start: 192.168.100.100
-          ip_end: 192.168.100.250
+          subnet: 192.168.101.0/24
 resource:
   - network:
       - chi_network:
@@ -44,6 +41,7 @@ resource:
           image: default_rocky_8
           network: '{{ network.fabric_network }}'
           count: '{{ var.node_count }}'
+          nic_model: NIC_Basic
       - chi_node:
           provider: '{{ chi.chi_provider }}'
           image: CC-Ubuntu20.04
@@ -51,8 +49,9 @@ resource:
           flavor: m1.medium
           count: '{{ var.node_count }}'
   - service:
-      - ansible_service:
+      - dtn_service:
           provider: '{{ janus.janus_provider }}'
-          node: ['{{ node.chi_node }}', '{{ node.fabric_node }}']
+          node: ['{{ node.chi_node }}','{{node.fabric_node}}']
+          playbook_path: /Users/sanjanadas/ansible_gen/AnsibleAutomation/playbook_step_master.yml
           profile: fabfed
           count: 2

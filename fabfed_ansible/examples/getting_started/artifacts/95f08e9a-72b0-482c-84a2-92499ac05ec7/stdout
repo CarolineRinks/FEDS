@@ -1,0 +1,10 @@
+[1;35m[WARNING]: Invalid characters were found in group names but not replaced, use[0m
+[1;35m-vvvv to see details[0m
+
+PLAY [Ansible Service Setup] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+[0;32mok: [2001:400:a100:3020:f816:3eff:fe91:36ca][0m
+
+PLAY RECAP *********************************************************************
+[0;32m2001:400:a100:3020:f816:3eff:fe91:36ca[0m : [0;32mok=1   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
