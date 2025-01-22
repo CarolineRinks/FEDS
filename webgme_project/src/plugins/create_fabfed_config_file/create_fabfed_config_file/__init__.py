@@ -32,16 +32,27 @@ class create_fabfed_config_file(PluginBase):
         logger.info('committed :{0}'.format(commit_info))
 
         # -------------------------------------------------------------------
+        
+        experiment_name = core.get_attribute(active_node, 'name')
+        try:
+            # Create a new directory for the experiment
+            current_dir = os.getcwd()
+            repo_dir = os.path.dirname(current_dir)
+            experiment_dir = f'{repo_dir}/experiments/{experiment_name}'
+            os.makedirs(experiment_dir, exist_ok=True)
+            # Make the fabfed config filename
+            fab_filename = f'{experiment_dir}/{experiment_name}.fab'
 
-        self.file_string = ''     # The final string that will be written to the fabfed config file. Made up of the strings below
+        except Exception as e:
+            logger.error(f'Failed to create experiment directory: {e}')
+            return
+
+        self.file_string = ''       # The final string that will be written to the fabfed config file. Made up of the strings below
         self.provider_string = ''   # The string for providers
-        self.resource_string = ''  # The string for resources
+        self.resource_string = ''   # The string for resources
         self.config_string = ''     # The string for config
 
         self.children = self.core.load_children(self.active_node) 
-
-        fab_filename = self.core.get_attribute(self.active_node, "name")
-        print("---------fab_filename: ", fab_filename)
         
         # Get Resources and Config nodes
         _, nodes = self.get_objs_of_meta(self.children, 'Resources')
@@ -58,19 +69,21 @@ class create_fabfed_config_file(PluginBase):
         self.file_string += self.provider_string
         self.file_string += self.config_string
         self.file_string += self.resource_string
-        #print("------------file_string:--------------\n", self.file_string)
 
-        # Write the entire file
-        self.add_file(f"{fab_filename}.fab", str(self.file_string))
-        self.result_set_success(True)
+        # Write the config file
+        try:
+            with open(fab_filename, 'w') as f:
+                f.write(self.file_string)
+                logger.info(f'Downloaded file to: {fab_filename}')
+        except Exception as e:
+            logger.error(f'Failed to write config file: {e}')
+            return
 
     def get_objs_of_meta(self, children, metatype):
         # Helper function to retrieve nodes of given meta type
         names, nodes = [], []
         for child in children:
            if self.core.is_type_of(child, self.META[metatype]): 
-               #self.get_all_attributes_values(child)
-               #self.get_all_childrens(child)
                nodes.append(child)
                names.append(self.core.get_attribute(child, 'name'))
         return names, nodes 
@@ -133,7 +146,7 @@ class create_fabfed_config_file(PluginBase):
         self.services_string = ''
 
         # Get all service nodes drag and dropped by the user
-        services = self.core.load_children(active_node) 
+        services = self.core.load_children(active_node)
         if services:
             self.services_string += '  - service:\n'
             for service in services:
@@ -142,8 +155,6 @@ class create_fabfed_config_file(PluginBase):
                 self.services_string += '      - ' + service_name + ':\n'
 
                 # Write provider
-                # pointer_labels = self.get_pointer_labels(network)
-                # print("------------pointer_labels: ", pointer_labels)
                 provider = self.core.load_pointer(service,'provider')
                 if provider:
                     provider_name = self.core.get_attribute(provider, 'name')
@@ -159,19 +170,14 @@ class create_fabfed_config_file(PluginBase):
                 # Write nodes attribute
                 self.services_string += "          node: ["
                 # Get nodes inside of service
-                nodes = self.core.load_children(service)
+                node_ptrs = self.core.load_children(service)
                 node_count = 0
-                for node in nodes:
+                for node_ptr in node_ptrs:
                     node_count += 1
+                    # get pointer to the node
+                    node = self.core.load_pointer(node_ptr,'ansible_host')
                     self.services_string += "'{{ node." + self.core.get_attribute(node, 'name') + " }}', "
                 self.services_string = self.services_string[:-2] + "]\n"    # remove the last comma and space and add ending bracket
-                
-                # Write each attribute
-                # attributes = self.core.get_attribute_names(service)
-                # for attribute in attributes:
-                #     value = self.core.get_attribute(service, attribute)
-                #     if (value) and (attribute != 'name'):
-                #         self.services_string += '          ' + attribute + ': ' + str(value) + '\n'
 
                 # Write profile
                 if provider_name == "Janus":
@@ -183,7 +189,6 @@ class create_fabfed_config_file(PluginBase):
 
                 # Write count of nodes
                 self.services_string += "          count: " + str(node_count) + "\n"
-
 
             self.resource_string += self.services_string
 
@@ -200,7 +205,6 @@ class create_fabfed_config_file(PluginBase):
                 self.nodes_string += '      - ' + node_name + ':\n'
 
                 # Write provider
-                #pointer_labels = self.get_pointer_labels(node)
                 provider_node = self.core.load_pointer(node,'provider')
                 if provider_node:
                     provider_name = self.core.get_attribute(provider_node, 'name')
@@ -221,7 +225,6 @@ class create_fabfed_config_file(PluginBase):
 
                 # Get all attributes of the node
                 attributes = self.core.get_attribute_names(node)
-                # print("------------attributes:", attributes)
 
                 # Write each attribute
                 for attribute in attributes:
