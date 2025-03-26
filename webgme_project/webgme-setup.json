@@ -6,6 +6,9 @@
       },
       "seed_2": {
         "src": "src/seeds/seed_2"
+      },
+      "seed_3": {
+        "src": "src/seeds/seed_3"
       }
     },
     "plugins": {
