@@ -214,6 +214,11 @@ __pycache__/
 # Ignore node_modules
 node_modules/
 
+# Ignore artifacts folders
+artifacts/
+**/artifacts/
+
+
 
 
 
