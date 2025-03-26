@@ -1,0 +1,15 @@
+{
+  "id": "create_credential_file",
+  "name": "create_credential_file",
+  "version": "0.1.0",
+  "description": "",
+  "icon": {
+    "class": "glyphicon glyphicon-cog",
+    "src": ""
+  },
+  "disableServerSideExecution": false,
+  "disableBrowserSideExecution": true,
+  "dependencies": [],
+  "writeAccessRequired": false,
+  "configStructure": []
+}

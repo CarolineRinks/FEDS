@@ -1,0 +1,15 @@
+{
+  "id": "stitch-info",
+  "name": "stitch-info",
+  "version": "0.1.0",
+  "description": "",
+  "icon": {
+    "class": "glyphicon glyphicon-cog",
+    "src": ""
+  },
+  "disableServerSideExecution": false,
+  "disableBrowserSideExecution": true,
+  "dependencies": [],
+  "writeAccessRequired": false,
+  "configStructure": []
+}

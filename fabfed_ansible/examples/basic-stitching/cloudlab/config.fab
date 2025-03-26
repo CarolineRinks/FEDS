@@ -2,7 +2,7 @@ variable:
   - node_count:
       default: 1
   - cloulab_device:
-      default: Cloudlab-Utah    # Utah-Cloudlab-Powder
+      default: Cloudlab-Utah #CloudLab-Clemson            #Cloudlab-Utah    # Utah-Cloudlab-Powder
 provider:
   - cloudlab:
       - cloudlab_provider:
@@ -12,6 +12,10 @@ provider:
       - fabric_provider:
           credential_file: ~/.fabfed/fabfed_credentials.yml
           profile: fabric
+  - ansible:
+      - ansible_provider:
+          credential_file: ~/.fabfed/fabfed_credentials.yml
+          profile: ansible
 config:
   - layer3:
       - layer3_config:
@@ -33,11 +37,18 @@ resource:
       - cloudlab_node:
           provider: '{{ cloudlab.cloudlab_provider }}'
           network: '{{ network.cnet }}'
-          count: '{{ var.node_count }}'
+          count: 1
       - fabric_node:
           provider: '{{ fabric.fabric_provider }}'
           # image: default_rocky_8
           # nic_model: NIC_Basic
           network: '{{ network.fabric_network }}'
-          count: '{{ var.node_count }}'
+          count: 1
+  - service:
+      - cloudlab_service:
+          provider: '{{ ansible.ansible_provider }}'
+          node: '{{ node.cloudlab_node }}'
+          playbook_path: /Users/sanjanadas/FedTestML/experiments/Fabric_Chi_Cloudlab/chi_main.yml
+          count: 1
+  
 

@@ -1,0 +1,7 @@
+---
+- name: Play
+  hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+

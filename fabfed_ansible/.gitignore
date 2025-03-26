@@ -150,9 +150,19 @@ __pycache__
 fabfed_py.egg-info
 .egg-info
 venv
+*.pyc
 
 # emacs auto-save
 *.*~
 
 # jupyter artifacts
 .ipynb_checkpoints
+
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore node_modules
+node_modules/
+

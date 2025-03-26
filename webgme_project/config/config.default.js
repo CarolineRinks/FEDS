@@ -8,7 +8,9 @@ var config = require('./config.webgme'),
 // config.mongo.uri = 'mongodb://127.0.0.1:27017/webgme_my_app';
 config.plugin.allowServerExecution = true;
 config.authentication.allowGuests = true;
+config.visualization.svgDirs.push("./src/svgs");
 config.authentication.guestAccount = 'guest';
+config.core.enableCustomConstraints = true;
 
 
 

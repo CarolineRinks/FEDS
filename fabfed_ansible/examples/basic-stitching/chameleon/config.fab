@@ -1,8 +1,8 @@
 variable:
   - site:
-      default: CHI@UC #STAR
+      default: CHI@TACC #STAR
   - node_count:
-      default: 1
+      default: 0
 provider:
   - fabric:
       - fabric_provider:
@@ -40,18 +40,18 @@ resource:
           provider: '{{ fabric.fabric_provider }}'
           image: default_rocky_8
           network: '{{ network.fabric_network }}'
-          count: '{{ var.node_count }}'
+          count: 1
           nic_model: NIC_Basic
       - chi_node:
           provider: '{{ chi.chi_provider }}'
           image: CC-Ubuntu20.04
           network: '{{ network.chi_network }}'
           flavor: m1.medium
-          count: '{{ var.node_count }}'
+          count: 1
   - service:
       - dtn_service:
           provider: '{{ ansible.ansible_provider }}'
           node: ['{{ node.chi_node }}','{{node.fabric_node}}']
           playbook_path: /Users/sanjanadas/ansible_gen/AnsibleAutomation/playbook_step_master.yml
           profile: fabfed
-          count: 2
+          count: 0

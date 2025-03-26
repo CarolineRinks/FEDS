@@ -3,6 +3,9 @@
     "seeds": {
       "seed_1_21": {
         "src": "src/seeds/seed_1_21"
+      },
+      "seed_2": {
+        "src": "src/seeds/seed_2"
       }
     },
     "plugins": {
@@ -21,6 +24,30 @@
       "apply": {
         "src": "src/plugins/apply",
         "test": "test/plugins/apply"
+      },
+      "validate": {
+        "src": "src/plugins/validate",
+        "test": "test/plugins/validate"
+      },
+      "plan_summary": {
+        "src": "src/plugins/plan_summary",
+        "test": "test/plugins/plan_summary"
+      },
+      "destroy": {
+        "src": "src/plugins/destroy",
+        "test": "test/plugins/destroy"
+      },
+      "stitch-info": {
+        "src": "src/plugins/stitch-info",
+        "test": "test/plugins/stitch-info"
+      },
+      "create_credential_file": {
+        "src": "src/plugins/create_credential_file",
+        "test": "test/plugins/create_credential_file"
+      },
+      "test": {
+        "src": "src/plugins/test",
+        "test": "test/plugins/test"
       }
     }
   },

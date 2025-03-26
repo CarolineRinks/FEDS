@@ -3,7 +3,7 @@
     "stitch-port": [
       {
         "name": "Cloudlab-Utah",
-        "profile": "Utah-Cloudlab-Powder",
+        "profile": "Utah-Cloudlab-Powder", 
         "preference": 200,
         "member-of": [
           "CLOUDLAB"

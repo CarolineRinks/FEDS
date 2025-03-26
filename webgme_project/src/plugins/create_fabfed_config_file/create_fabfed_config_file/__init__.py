@@ -7,6 +7,7 @@ import logging
 from webgme_bindings import PluginBase
 import os
 
+#if network is default then the name should be the value of the network field in node.
 # Setup a logger
 logger = logging.getLogger('create_fabfed_config_file')
 logger.setLevel(logging.INFO)
@@ -53,18 +54,22 @@ class create_fabfed_config_file(PluginBase):
         self.config_string = ''     # The string for config
 
         self.children = self.core.load_children(self.active_node) 
+        self.providers_list = [] # List to keep track of providers
         
         # Get Resources and Config nodes
-        _, nodes = self.get_objs_of_meta(self.children, 'Resources')
-        self.resources_node = nodes[0]
         _, nodes = self.get_objs_of_meta(self.children, 'Config')
-        self.config_node = nodes[0]
+        if nodes:
+            self.config_node = nodes[0]
+            self.config_generate()
+        _, nodes = self.get_objs_of_meta(self.children, 'Resources')
+        if nodes:
+            self.resources_node = nodes[0]
+            self.resources_generate()
+        
 
-        self.providers_list = []    # List to keep track of providers
 
-        # Construct the fabfed config file string
-        self.config_generate()
-        self.resources_generate()
+
+        # Construct the fabfed config file string        
         self.providers_generate()
         self.file_string += self.provider_string
         self.file_string += self.config_string
@@ -171,12 +176,16 @@ class create_fabfed_config_file(PluginBase):
                 self.services_string += "          node: ["
                 # Get nodes inside of service
                 node_ptrs = self.core.load_children(service)
+                node_ptrs = [node for node in node_ptrs if self.core.is_type_of(node, self.META['Node_Pointer'])]
                 node_count = 0
                 for node_ptr in node_ptrs:
                     node_count += 1
                     # get pointer to the node
                     node = self.core.load_pointer(node_ptr,'ansible_host')
-                    self.services_string += "'{{ node." + self.core.get_attribute(node, 'name') + " }}', "
+                    if node:
+                        self.services_string += "'{{ node." + self.core.get_attribute(node, 'name') + " }}', "
+                    else:
+                        logger.error(f"Node pointer must point to a node in the topology !!!!")
                 self.services_string = self.services_string[:-2] + "]\n"    # remove the last comma and space and add ending bracket
 
                 # Write profile
@@ -248,11 +257,14 @@ class create_fabfed_config_file(PluginBase):
         _, services_node = self.get_objs_of_meta(children, 'Services')
         
         # Generate network information
-        self.network_generate(networks_node[0])
+        if networks_node:
+            self.network_generate(networks_node[0])
         # Generate node information
-        self.node_generate(nodes_node[0])
+        if nodes_node:
+            self.node_generate(nodes_node[0])
         # Generate service information 
-        self.service_generate(services_node[0])
+        if services_node:
+            self.service_generate(services_node[0])
         #print("------------resource_string:--------------\n", self.resource_string)
     
     def config_generate(self):
