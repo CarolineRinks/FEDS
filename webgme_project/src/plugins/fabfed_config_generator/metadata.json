@@ -1,0 +1,16 @@
+{
+  "id": "fabfed_config_generator",
+  "name": "fabfed_config_generator",
+  "version": "0.1.0",
+  "description": "",
+  "icon": {
+    "class": "glyphicon glyphicon-cog",
+    "src": ""
+  },
+  "disableServerSideExecution": false,
+  "disableBrowserSideExecution": true,
+  "config.addOn.enable": true,
+  "dependencies": [],
+  "writeAccessRequired": false,
+  "configStructure": []
+}

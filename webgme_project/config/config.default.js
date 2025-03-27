@@ -11,6 +11,7 @@ config.authentication.allowGuests = true;
 config.visualization.svgDirs.push("./src/svgs");
 config.authentication.guestAccount = 'guest';
 config.core.enableCustomConstraints = true;
+config.addOn.enable = true;
 
 
 

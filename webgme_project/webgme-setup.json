@@ -51,11 +51,17 @@
       "test": {
         "src": "src/plugins/test",
         "test": "test/plugins/test"
+      },
+      "fabfed_config_generator": {
+        "src": "src/plugins/fabfed_config_generator",
+        "test": "test/plugins/fabfed_config_generator"
       }
-    }
+    },
+    "addons": {}
   },
   "dependencies": {
     "seeds": {},
-    "plugins": {}
+    "plugins": {},
+    "addons": {}
   }
 }
