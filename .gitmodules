@@ -1,0 +1,3 @@
+[submodule "fabfed_ansible"]
+	path = fabfed_ansible
+	url = git@github.com:fabric-testbed/fabfed.git

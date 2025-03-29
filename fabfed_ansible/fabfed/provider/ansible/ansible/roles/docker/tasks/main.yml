@@ -1,6 +1,0 @@
----
-- name: load variables
-  include_tasks: load_vars.yml
-
-- name: include install
-  include_tasks: install.yml

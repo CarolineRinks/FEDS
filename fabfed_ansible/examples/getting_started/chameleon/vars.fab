@@ -1,4 +1,0 @@
-variable:
-  - chi_site:
-      default: CHI@UC
-      

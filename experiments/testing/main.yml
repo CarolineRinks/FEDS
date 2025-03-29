@@ -1,28 +1,7 @@
 ---
-name: Configure NodeJS, Edge Software, Telegraf, and Nginx
-hosts: all
-become: true
-gather_facts: yes
-tasks:
-  - name: Import NodeJS role
-    ansible.builtin.import_role:
-      role: "chi_service/roles/geerlingguy.nodejs"
-  
-  - name: Import Edge Software role
-    ansible.builtin.import_role:
-      role: "chi_service/roles/Ansible-for-IoT.iot_edge"
-  
-  - name: Import Telegraf role
-    ansible.builtin.import_role:
-      role: "chi_service/roles/dj-wasabi.telegraf"
-  
-  - name: Import Nginx role
-    ansible.builtin.import_role:
-      role: "chi_service/roles/nginxinc.nginx"
-
-
-
-
-
-
-
+- name: Configure NodeJS, Edge Software, Telegraf, and Nginx
+  hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+    - geerlingguy.nodejs

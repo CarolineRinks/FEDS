@@ -40,7 +40,7 @@ class fabfed_config_generator(PluginBase):
         logger.info('committed :{0}'.format(commit_info))
 
         self.plugin_utils = WebGMEUtils(core, root_node, active_node, self.META)
-
+        self.stitching_policies = []
         self.get_providers_in_the_topology()
         self.generate_config_file()
 
@@ -145,9 +145,9 @@ class fabfed_config_generator(PluginBase):
         for _, attr_dict in attr_of_node.items():
             for attr, attr_value in attr_dict.items():
                 if attr != 'name' and attr!= 'count' and attr_value:
-                    node_dict[attr] = attr_value
+                    node_dict[attr] = attr_value.strip()
                 elif attr == 'count':
-                    node_dict['count'] = int(attr_value)
+                    node_dict['count'] = int(attr_value.strip())
 
         # logger.info(f'[DEBUG] Node attributes for {node_name}: {node_dict}')
         return node_dict
@@ -166,6 +166,116 @@ class fabfed_config_generator(PluginBase):
                 node_entries.append({node_name: node_dict})
 
         return node_entries
+    
+
+
+    def generate_stitching_policy(self, fabric_network):
+        """
+        Generate simple stitching policies for fabric stitched with cloudlab or chameleon.
+        This function searches all Stitch_With connections and, for each connection where one
+        endpoint is a stitch port belonging to the given fabric network (regardless of whether it
+        is the src or dst), it determines the remote network. If its provider is 'cloudlab' or 'chi'
+        (Chameleon), then it dynamically builds a policy by extracting attributes from both stitch ports.
+        Finally, it updates the remote network's dictionary in network_entries with a stitch_with block
+        that references the fabric network and the generated policy.
+        """
+        policies = []
+        fabric_network_name = self.core.get_attribute(fabric_network, 'name')
+        logger.info(f"[DEBUG] Starting stitching policy generation for fabric network: {fabric_network_name}")
+
+        # Retrieve all Stitch_With connections.
+        stitch_with_conns = self.plugin_utils.get_connection_info('Stitch_With')
+        if not stitch_with_conns:
+            logger.info("[DEBUG] No Stitch_With connections found. Skipping stitching policy generation.")
+            return
+
+        # Get all stitch ports that belong to the fabric network via Belongs_To.
+        fabric_stitch_ports = self.plugin_utils.get_src_of_connections_if_node_is_dst('Belongs_To', fabric_network)
+        fabric_stitch_ports = [port for port in fabric_stitch_ports if self.core.is_type_of(port, self.META['Stitch_Port'])]
+        
+                
+        logger.info(f"[DEBUG] Found {len(fabric_stitch_ports)} stitch ports associated with fabric network '{fabric_network_name}'.")
+
+        for conn in stitch_with_conns:
+            src_node, connection_node, dst_node = conn
+
+            src_name = self.core.get_attribute(src_node, 'name') if src_node else "None"
+            dst_name = self.core.get_attribute(dst_node, 'name') if dst_node else "None"
+            logger.debug(f"[DEBUG] Processing Stitch_With connection: src='{src_name}', dst='{dst_name}'")
+
+            # Check if either endpoint is one of the fabric stitch ports.
+            fabric_in_src = src_node in fabric_stitch_ports
+            fabric_in_dst = dst_node in fabric_stitch_ports
+
+            if not (fabric_in_src or fabric_in_dst):
+                logger.debug("[DEBUG] Neither endpoint belongs to fabric network. Skipping this connection.")
+                continue
+
+            # Identify which node is the fabric stitch port and which is the remote stitch port.
+            if fabric_in_src:
+                fabric_sp = src_node
+                remote_sp = dst_node
+            else:
+                fabric_sp = dst_node
+                remote_sp = src_node
+
+            fabric_sp_name = self.core.get_attribute(fabric_sp, 'name')
+            remote_sp_name = self.core.get_attribute(remote_sp, 'name')
+            logger.info(f"[DEBUG] Found fabric stitch port '{fabric_sp_name}' connected to remote stitch port '{remote_sp_name}'.")
+
+            # Determine the remote network that the remote stitch port belongs to.
+            remote_networks = self.plugin_utils.get_dst_of_connections_if_node_is_src('Belongs_To', remote_sp)
+            if not remote_networks:
+                logger.warning(f"[WARN] Remote stitch port '{remote_sp_name}' is not connected via Belongs_To to any network. Skipping.")
+                continue
+            remote_network = remote_networks[0]
+            remote_network_name = self.core.get_attribute(remote_network, 'name')
+            remote_provider = self.get_provider_of_resource(remote_network)
+            logger.info(f"[DEBUG] Remote stitch port '{remote_sp_name}' belongs to network '{remote_network_name}' with provider '{remote_provider}'.")
+
+            
+            policy_name = f"{remote_network_name}_{fabric_network_name}"
+            policy = {}
+
+            #TODO: if gcp is stitching then peer needs to be gcp and stitch_port needs to be fabric
+            policy['producer'] = 'fabric' if remote_provider != 'gcp' else remote_provider
+            policy['consumer'] = remote_provider if remote_provider != 'gcp' else 'fabric'
+
+            policy['stitch_port'] = {}
+            policy['stitch_port']['peer'] = {}
+
+            if remote_provider == 'gcp':
+                # If GCP is stitching, then use the fabric stitch port attributes for the main stitch_port,
+                # and use the remote stitch port attributes for the peer, with provider set accordingly.
+                for key, value in self.plugin_utils.get_all_attributes_values(fabric_sp).items():
+                    for attr, attr_value in value.items():
+                        if attr != 'name' and attr_value:
+                            policy['stitch_port'][attr] = attr_value
+                    policy['stitch_port']['provider'] = 'fabric'
+                for key, value in self.plugin_utils.get_all_attributes_values(remote_sp).items():
+                    for attr, attr_value in value.items():
+                        if attr != 'name' and attr_value:
+                            policy['stitch_port']['peer'][attr] = attr_value
+                    policy['stitch_port']['peer']['provider'] = 'gcp'
+            else:
+                # Normal case: use the remote stitch port attributes for stitch_port,
+                # and use the fabric stitch port attributes for the peer.
+                for key, value in self.plugin_utils.get_all_attributes_values(remote_sp).items():
+                    for attr, attr_value in value.items():
+                        if attr != 'name' and attr_value:
+                            policy['stitch_port'][attr] = attr_value
+                    policy['stitch_port']['provider'] = remote_provider
+                for key, value in self.plugin_utils.get_all_attributes_values(fabric_sp).items():
+                    for attr, attr_value in value.items():
+                        if attr != 'name' and attr_value:
+                            policy['stitch_port']['peer'][attr] = attr_value
+                    policy['stitch_port']['peer']['provider'] = 'fabric'
+
+                self.stitching_policies.append({f'{policy_name}': policy})
+                policies.append({f'{remote_network_name}': policy_name})
+
+        return policies
+
     
     #TODO: is layer3 needed for networks?
 
@@ -241,11 +351,24 @@ class fabfed_config_generator(PluginBase):
             return network_entries
 
         for network in networks:
-            network_dict = self._build_network_dict(network, peering_flag)
+            network_dict = self._build_network_dict(network, peering_flag)                
+            provider= self.get_provider_of_resource(network)
+            if provider == 'fabric':
+                policies=self.generate_stitching_policy(network)
+                if policies:
+                    for policy in policies:
+                        for key, value in policy.items():
+                            if 'stitch_with' not in network_dict:
+                                network_dict['stitch_with'] = []
+
+                                stitch_with_dict= {'network': LiteralString(f"{{{{ network.{key} }}}}"), 'stitch_option': {'policy': value}}
+                                network_dict['stitch_with'].append(stitch_with_dict)
+                            else:
+                                stitch_with_dict= {'network': LiteralString(f"{{{{ network.{key} }}}}"), 'stitch_option': {'policy': value}}
+                                network_dict['stitch_with'].append(stitch_with_dict)
             if network_dict:
                 network_name = self.core.get_attribute(network, 'name')
-                network_entries.append({network_name: network_dict})
-                
+                network_entries.append({network_name: network_dict})    
         return network_entries
 
     def generate_layer3_info(self):
@@ -261,7 +384,7 @@ class fabfed_config_generator(PluginBase):
             for _, attr_dict in attr_of_layer3.items():
                 for attr, attr_value in attr_dict.items():
                     if attr != 'name' and attr_value:
-                        layer3_dict[attr] = attr_value
+                        layer3_dict[attr] = attr_value.strip()
             layer3_entries.append({layer3_name: layer3_dict})
         return layer3_entries
     
@@ -280,17 +403,71 @@ class fabfed_config_generator(PluginBase):
             for _, attr_dict in attr_of_peering.items():
                 for attr, attr_value in attr_dict.items():
                     if attr != 'name' and attr_value:
-                        peering_dict[attr] = attr_value
+                        logger.info(f'[DEBUG : generate_peering_info] Peering attribute: {attr} with value {attr_value} and type {type(attr_value)}')
+                        peering_dict[attr] = attr_value.strip()
             peering_entries.append({peering_name: peering_dict})
         return peering_entries
+    
+    def generate_service_info(self):
+        services_folder = self.plugin_utils.get_nodes_of_meta_type(self.active_node, 'Services')
+        # logger.info(f'[DEBUG] Services: {self.core.get_attribute(services_folder, "name")}')
+        service_entries = []
+        if not services_folder:
+            return service_entries
+        
+        services_folder = services_folder[0]
+        
+        services = self.plugin_utils.get_nodes_of_meta_type(services_folder, 'Service')
+        for service in services:
+            # logger.info(f'[DEBUG] Service: {self.core.get_attribute(service, "name")}')
+            service_dict = {}
+            service_name = self.core.get_attribute(service, 'name')
+            target_hosts_folder = self.plugin_utils.get_nodes_of_meta_type(service, 'Target_Hosts')
+            # logger.info(f'[DEBUG] Target hosts folder: {self.core.get_attribute(target_hosts_folder, "name")}')
+            if not target_hosts_folder:
+                msg = (f"No target host folder found for the service {service_name}! It is required. Please check the model.")
+                self.create_message(service, msg, 'error')
+                raise Exception(msg)
+            
+            target_hosts_folder = target_hosts_folder[0]
+            target_host_ptrs = self.plugin_utils.get_nodes_of_meta_type(target_hosts_folder, 'Target_Host_Ptr')
+            if not target_host_ptrs:
+                msg = (f"No target host found for the service {service_name}! It is required. Please check the model.")
+                self.create_message(service, msg, 'error')
+                raise Exception(msg)
+            
+            playbook_path = f'Services/{service_name}/main.yml'
+            service_dict['playbook_path'] = playbook_path
+            provider = self.get_provider_of_resource(service)
+            if not provider:
+                msg = (f"No provider found for the service {service_name}! It is required. Please check the model.")
+                self.create_message(service, msg, 'error')
+                raise Exception(msg)
+            
+            provider_var = LiteralString(f"{{{{ {provider}.{provider}_provider }}}}")
+            service_dict['provider'] = provider_var                  
+            target_hosts=[]
+            for target_host_ptr in target_host_ptrs:
+                target_host = self.plugin_utils.get_referenced_node(target_host_ptr,'node_ptr')
+                if target_host:
+                    target_host_name = self.core.get_attribute(target_host, 'name')
+                    logger.info(f'[DEBUG] Target host name: {target_host_name} for the service {service_name}')
+                    target_hosts.append(target_host_name)
+                inline_target_hosts_str = "[" + ", ".join(f"'{{{{ node.{target_host_name} }}}}'" for target_host_name in target_hosts) + "]"
+
+            service_dict['node'] = LiteralString(inline_target_hosts_str)            
+            service_entries.append({service_name: service_dict})
+        return service_entries
             
 
     def generate_config_file(self):
         provider_entries = self.generate_provider_info()
         node_entries = self.generate_node_info()
         network_entries = self.generate_network_info()
+        service_entries = self.generate_service_info()
         layer3_entries = self.generate_layer3_info()
         peering_entries = self.generate_peering_info()
+
         resources = []
         config=[]
 
@@ -298,6 +475,8 @@ class fabfed_config_generator(PluginBase):
             resources.append({'network':network_entries})
         if node_entries:
             resources.append({'node':node_entries})
+        if service_entries:
+            resources.append({'service':service_entries})
         logger.info(f"[DEBUG ]resources: {resources}")
 
         if layer3_entries:
@@ -307,10 +486,14 @@ class fabfed_config_generator(PluginBase):
 
         config = {
             'provider': provider_entries,
-            'resources': resources,
             'config': config,
+            'resources': resources,
+            
 
         }
+
+        if self.stitching_policies:
+            config['config'].append({'policy': self.stitching_policies})
 
         output_filename = self.get_current_config().get("file_name")
         if not output_filename:

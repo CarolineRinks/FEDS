@@ -33,7 +33,7 @@ class WebGMEUtils:
         """Retrieves the node referenced by a given pointer."""
         reference_pointer = self.core.get_pointer_path(node, ptr_name)
         if not reference_pointer:
-            logger.error(f"No reference pointer found for {ptr_name}.")
+            # logger.error(f"No reference pointer found for {ptr_name}.")
             return None
         return self.core.load_by_path(self.root_node, reference_pointer)
 

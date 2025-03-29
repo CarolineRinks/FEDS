@@ -1,9 +1,0 @@
-provider:
-  - chi:
-    - chi_provider:
-          credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: chi
-  - ansible:
-    - ansible_provider:
-          credential_file: ~/.fabfed/fabfed_credentials.yml
-          profile: ansible

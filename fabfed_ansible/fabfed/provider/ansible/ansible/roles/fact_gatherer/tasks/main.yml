@@ -1,7 +1,0 @@
----
-- name: Gather system facts
-  ansible.builtin.setup:
-
-- name: Display gathered facts
-  debug:
-    var: ansible_facts
