@@ -9,6 +9,9 @@
       },
       "seed_3": {
         "src": "src/seeds/seed_3"
+      },
+      "seed_4": {
+        "src": "src/seeds/seed_4"
       }
     },
     "plugins": {
