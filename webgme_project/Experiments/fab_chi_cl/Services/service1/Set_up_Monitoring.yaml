@@ -1,0 +1,8 @@
+-   name: Set_up_Monitoring
+    hosts: all
+    become: true
+    gather_facts: true
+    roles:
+    -   role: ajtalla.prometheus
+    -   role: aaronpederson.grafana
+    -   role: aminvakil.node_exporter

@@ -29,6 +29,8 @@ class apply(PluginBase):
 
         commit_info = self.util.save(root_node, self.commit_hash, 'master', 'Python plugin updated the model')
         logger.info('committed :{0}'.format(commit_info))
+
+        
     
     
 
@@ -47,20 +49,4 @@ class apply(PluginBase):
         roles_dir = f'{repo_dir}/experiments/{experiment_name}/{service_name}/roles'
         return roles_dir   
 
-    def load_all_children(self,node):
-        children=[]
-        for child in self.core.load_children(node):
-            children.append(child)
-            # print("child: ",self.core.get_attribute(child, 'name') )
-        return children
-    
-    def get_objs_of_meta(self,metatype,children):
-        #return names of node and node objects of given meta type
-        _nodes_=[]
-        for child in children :
-           if self.core.is_type_of(child,self.META[metatype]): 
-               _nodes_.append(child)
 
-        return _nodes_
-    def get_name_of_node(self,node):
-        return self.core.get_attribute(node,'name') 

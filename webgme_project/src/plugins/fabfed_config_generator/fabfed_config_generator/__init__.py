@@ -41,13 +41,14 @@ class fabfed_config_generator(PluginBase):
 
         self.plugin_utils = WebGMEUtils(core, root_node, active_node, self.META)
         self.stitching_policies = []
-        self.get_providers_in_the_topology()
         self.generate_config_file()
 
     def get_provider_of_resource(self, node):
         provider = self.plugin_utils.get_referenced_node(node, 'provider')
         if provider:
             provider_name = self.plugin_utils.core.get_attribute(provider, 'name')
+            if provider_name == 'Chameleon' or provider_name == 'chameleon':
+                provider_name = 'chi'
             return provider_name.lower()
         else:
             logger.warning(f'Provider not found for : {node} with name {self.core.get_attribute(node, "name")}')
@@ -57,15 +58,18 @@ class fabfed_config_generator(PluginBase):
         provider_set = set()
         networks = self.plugin_utils.get_nodes_of_meta_type(self.active_node, 'Network')
         nodes = self.plugin_utils.get_nodes_of_meta_type(self.active_node, 'Node')
-        services= self.plugin_utils.get_nodes_of_meta_type(self.active_node, 'Service')
+        services= self.plugin_utils.get_nodes_of_meta_type(self.active_node, 'Services')[0]
+        logger.info(f'[DEBUG] Services folder: {self.core.get_attribute(services, "name")}')
         if networks:
             for network in networks:
                 provider = self.get_provider_of_resource(network)
                 if provider:
                     provider_set.add(provider)
         if services:
-            for service in services:
-                provider = self.get_provider_of_resource(service)
+            service_nodes = self.plugin_utils.get_nodes_of_meta_type(services, 'Service')
+            for service_node in service_nodes:
+                logger.info(f'[DEBUG] Service: {self.core.get_attribute(service_node, "name")}')
+                provider = self.get_provider_of_resource(service_node)
                 if provider:
                     provider_set.add(provider)
         elif nodes:
@@ -299,6 +303,10 @@ class fabfed_config_generator(PluginBase):
             logger.info(f'[DEBUG] Layer3 name: {layer3_name} for the network {network_name}')
             layer3_var = LiteralString(f"{{{{ layer3.{layer3_name} }}}}")
             network_dict['layer3'] = layer3_var
+        else:
+            msg = f"No layer3 found for the network {network_name}! It is required for stitching experiments. Please check the model."
+            self.create_message(network, msg, 'warning')
+                   
 
         if peering_flag:
             peering_connections = self.plugin_utils.get_connection_info('Peering')
@@ -361,10 +369,10 @@ class fabfed_config_generator(PluginBase):
                             if 'stitch_with' not in network_dict:
                                 network_dict['stitch_with'] = []
 
-                                stitch_with_dict= {'network': LiteralString(f"{{{{ network.{key} }}}}"), 'stitch_option': {'policy': value}}
+                                stitch_with_dict= {'network': LiteralString(f"{{{{ network.{key} }}}}"), 'stitch_option': {'policy': LiteralString(f"{{{{ policy.{value} }}}}")}}
                                 network_dict['stitch_with'].append(stitch_with_dict)
                             else:
-                                stitch_with_dict= {'network': LiteralString(f"{{{{ network.{key} }}}}"), 'stitch_option': {'policy': value}}
+                                stitch_with_dict= {'network': LiteralString(f"{{{{ network.{key} }}}}"), 'stitch_option': {'policy': LiteralString(f"{{{{ policy.{value} }}}}")}}
                                 network_dict['stitch_with'].append(stitch_with_dict)
             if network_dict:
                 network_name = self.core.get_attribute(network, 'name')
@@ -436,7 +444,7 @@ class fabfed_config_generator(PluginBase):
                 self.create_message(service, msg, 'error')
                 raise Exception(msg)
             
-            playbook_path = f'Services/{service_name}/main.yml'
+            playbook_path = f'Services/{service_name}/main.yaml'
             service_dict['playbook_path'] = playbook_path
             provider = self.get_provider_of_resource(service)
             if not provider:
@@ -487,7 +495,7 @@ class fabfed_config_generator(PluginBase):
         config = {
             'provider': provider_entries,
             'config': config,
-            'resources': resources,
+            'resource': resources,
             
 
         }
@@ -495,9 +503,8 @@ class fabfed_config_generator(PluginBase):
         if self.stitching_policies:
             config['config'].append({'policy': self.stitching_policies})
 
-        output_filename = self.get_current_config().get("file_name")
-        if not output_filename:
-            output_filename = self.core.get_attribute(self.active_node, "name")
+
+        topology_name = self.core.get_attribute(self.active_node, "name")
 
         yaml_content = yaml.dump(
             config,
@@ -507,6 +514,12 @@ class fabfed_config_generator(PluginBase):
             allow_unicode=True
         )
 
-        self.add_file(f"{output_filename}.yaml", yaml_content)
+        # self.add_file(f"{output_filename}.fab", yaml_content)
+        base_dir = f'Experiments/{topology_name}'
+        os.makedirs(base_dir, exist_ok=True)
+        config_file_path = os.path.join(base_dir, f'config.fab')
+        with open(config_file_path, 'w') as file:
+            file.write(yaml_content)
+        self.create_message(self.active_node, f"Fabfed config file saved at {config_file_path}", 'info')
         self.result_set_success(True)
         return config

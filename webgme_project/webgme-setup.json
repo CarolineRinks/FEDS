@@ -16,10 +16,6 @@
         "src": "src/plugins/create_fabfed_config_file",
         "test": "test/plugins/create_fabfed_config_file"
       },
-      "install_role": {
-        "src": "src/plugins/install_role",
-        "test": "test/plugins/install_role"
-      },
       "playbook_generator": {
         "src": "src/plugins/playbook_generator",
         "test": "test/plugins/playbook_generator"
@@ -55,6 +51,10 @@
       "fabfed_config_generator": {
         "src": "src/plugins/fabfed_config_generator",
         "test": "test/plugins/fabfed_config_generator"
+      },
+      "install_roles": {
+        "src": "src/plugins/install_roles",
+        "test": "test/plugins/install_roles"
       }
     },
     "addons": {}

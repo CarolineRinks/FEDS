@@ -1,0 +1,96 @@
+provider:
+-   ansible:
+    -   ansible_provider:
+            credential_file: ~/.fabfed/fabfed_credentials.yml
+            profile: ansible
+-   cloudlab:
+    -   cloudlab_provider:
+            credential_file: ~/.fabfed/fabfed_credentials.yml
+            profile: cloudlab
+-   fabric:
+    -   fabric_provider:
+            credential_file: ~/.fabfed/fabfed_credentials.yml
+            profile: fabric
+-   chi:
+    -   chi_provider:
+            credential_file: ~/.fabfed/fabfed_credentials.yml
+            profile: chi
+config:
+-   layer3:
+    -   mylayer:
+            subnet: 192.168.1.0/24
+-   policy:
+    -   clnet_fabnet:
+            stitch_port:
+                profile: das-fabfed-clem
+                provider: cloudlab
+                option:
+                        cluster: urn:publicid:IDN+clemson.cloudlab.us+authority+cm
+                peer:
+                        name: CloudLab-Clemson  #name required
+                        profile: CloudLab-Clemson
+                        provider: fabric
+                        device_name: CloudLab-Clemson
+                        site: CLEM
+                        vlan_range:
+                        - 3000-3999
+                labels:
+                - cnet@network
+                - fabric_network@network
+            producer: fabric
+            consumer: cloudlab
+                
+    -   chinet_fabnet:
+            producer: fabric
+            consumer: chi
+            stitch_port:
+                profile: fabric
+                site: CHI@TACC
+                provider: chi
+                peer:
+                    name: Chameleon-TACC
+                    profile: Chameleon-TACC
+                    device_name: Chameleon-TACC
+                    site: TACC
+                    provider: fabric
+                
+resource:
+-   network:
+    -   fabnet:
+            provider: "{{ fabric.fabric_provider }}"
+            layer3: "{{ layer3.mylayer }}"
+            stitch_with:
+            -   network: "{{ network.clnet }}"
+                stitch_option:
+                    policy: "{{ policy.clnet_fabnet }}"
+            -   network: "{{ network.chinet }}"
+                stitch_option:
+                    policy: "{{ policy.chinet_fabnet }}"
+    -   chinet:
+            provider: "{{ chi.chi_provider }}"
+            layer3: "{{ layer3.mylayer }}"
+    -   clnet:
+            provider: "{{ cloudlab.cloudlab_provider }}"
+            layer3: "{{ layer3.mylayer }}"
+-   node:
+    -   chi_node:
+            provider: "{{ chi.chi_provider }}"
+            network: "{{ network.chinet }}"
+            count: 1
+    -   fab_node:
+            provider: "{{ fabric.fabric_provider }}"
+            network: "{{ network.fabnet }}"
+            count: 1
+    -   cl_node:
+            provider: "{{ cloudlab.cloudlab_provider }}"
+            network: "{{ network.clnet }}"
+            count: 1
+-   service:
+    -   Service2:
+            playbook_path: Services/Service2/main.yaml
+            provider: "{{ ansible.ansible_provider }}"
+            node: "['{{ node.fab_node }}']"
+    -   service1:
+            playbook_path: Services/service1/main.yaml
+            provider: "{{ ansible.ansible_provider }}"
+            node: "['{{ node.chi_node }}', '{{ node.cl_node }}']"

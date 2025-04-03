@@ -1,0 +1,10 @@
+-   name: Deploy_a_secure_Web_Application_Stack
+    hosts: all
+    become: true
+    gather_facts: true
+    roles:
+    -   role: 1mr.firewall
+    -   role: geerlingguy.mysql
+    -   role: tenequm.php
+    -   role: aaronpederson.nginx
+    -   role: aaronpederson.certbot
