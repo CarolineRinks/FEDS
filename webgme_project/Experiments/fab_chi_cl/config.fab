@@ -1,59 +1,52 @@
 provider:
--   ansible:
-    -   ansible_provider:
-            credential_file: ~/.fabfed/fabfed_credentials.yml
-            profile: ansible
--   cloudlab:
-    -   cloudlab_provider:
-            credential_file: ~/.fabfed/fabfed_credentials.yml
-            profile: cloudlab
 -   fabric:
     -   fabric_provider:
             credential_file: ~/.fabfed/fabfed_credentials.yml
             profile: fabric
+-   ansible:
+    -   ansible_provider:
+            credential_file: ~/.fabfed/fabfed_credentials.yml
+            profile: ansible
 -   chi:
     -   chi_provider:
             credential_file: ~/.fabfed/fabfed_credentials.yml
             profile: chi
+-   cloudlab:
+    -   cloudlab_provider:
+            credential_file: ~/.fabfed/fabfed_credentials.yml
+            profile: cloudlab
 config:
 -   layer3:
     -   mylayer:
             subnet: 192.168.1.0/24
 -   policy:
     -   clnet_fabnet:
-            stitch_port:
-                profile: das-fabfed-clem
-                provider: cloudlab
-                option:
-                        cluster: urn:publicid:IDN+clemson.cloudlab.us+authority+cm
-                peer:
-                        name: CloudLab-Clemson  #name required
-                        profile: CloudLab-Clemson
-                        provider: fabric
-                        device_name: CloudLab-Clemson
-                        site: CLEM
-                        vlan_range:
-                        - 3000-3999
-                labels:
-                - cnet@network
-                - fabric_network@network
             producer: fabric
             consumer: cloudlab
-                
+            stitch_port:
+                peer:
+                    site: CLEM
+                    device_name: CloudLab-Clemson
+                    profile: CloudLab-Clemson
+                    preference: 100
+                    provider: fabric
+                profile: das-fabfed-clem
+                preference: 100
+                provider: cloudlab
     -   chinet_fabnet:
             producer: fabric
             consumer: chi
             stitch_port:
+                peer:
+                    profile: Chameleon-TACC
+                    site: TACC
+                    device_name: Chameleon-TACC
+                    preference: 100
+                    provider: fabric
                 profile: fabric
                 site: CHI@TACC
+                preference: 100
                 provider: chi
-                peer:
-                    name: Chameleon-TACC
-                    profile: Chameleon-TACC
-                    device_name: Chameleon-TACC
-                    site: TACC
-                    provider: fabric
-                
 resource:
 -   network:
     -   fabnet:

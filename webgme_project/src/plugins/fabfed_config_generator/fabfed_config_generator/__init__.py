@@ -288,6 +288,8 @@ class fabfed_config_generator(PluginBase):
         network_dict = {}
         network_name = self.core.get_attribute(network, 'name')
         provider = self.get_provider_of_resource(network)
+
+        #checks if the network has a provider
         if not provider:
             msg = (f"No provider found for the network {network_name}! It is required. "
                 f"Please check the model.")
@@ -296,7 +298,6 @@ class fabfed_config_generator(PluginBase):
         provider_var = LiteralString(f"{{{{ {provider}.{provider}_provider }}}}")
         network_dict['provider'] = provider_var
 
-        # Include additional network information such as layer and peering (excluding 'name')
         layer3 = self.plugin_utils.get_referenced_node(network, 'layer3')
         if layer3:
             layer3_name = self.core.get_attribute(layer3, 'name')

@@ -80,12 +80,12 @@ class validate(PluginBase):
             result = subprocess.run(cmd, capture_output=True, text=True)
 
             if result.returncode == 0:
-                success_msg = f"✅ FabFed validation successful:\n{result.stdout}"
+                success_msg = f"FabFed validation successful:\n{result.stdout}"
                 logger.info(success_msg)
                 self.create_message(self.active_node, success_msg, 'info')
                 return True
             else:
-                error_msg = f"❌ FabFed validation failed:\n{result.stderr}"
+                error_msg = f"FabFed validation failed:\n{result.stderr}"
                 logger.error(error_msg)
                 self.create_message(self.active_node, error_msg, 'error')
                 return False

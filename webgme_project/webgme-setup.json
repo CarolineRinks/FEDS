@@ -58,6 +58,10 @@
       "install_roles": {
         "src": "src/plugins/install_roles",
         "test": "test/plugins/install_roles"
+      },
+      "credential_file_generator": {
+        "src": "src/plugins/credential_file_generator",
+        "test": "test/plugins/credential_file_generator"
       }
     },
     "addons": {}
